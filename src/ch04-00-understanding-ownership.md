@@ -1,7 +1,5 @@
-# Understanding Ownership
+# Ownership Sistemi
 
-Ownership is Rust’s most unique feature and has deep implications for the rest
-of the language. It enables Rust to make memory safety guarantees without
-needing a garbage collector, so it’s important to understand how ownership
-works. In this chapter, we’ll talk about ownership as well as several related
-features: borrowing, slices, and how Rust lays data out in memory.
+Ownership, Rust'ın bellek güvenliğini garbage collection olmadan garanti eden merkezi özelliğidir. TypeScript/JavaScript'teki automatic memory management'ın aksine, Rust compile-time'da memory safety'yi enforce eder.
+
+Bu bölümde ownership, borrowing, slices ve memory layout konularını ele alacağız. Bu kavramlar Rust'ın diğer dillerden temel farkını oluşturur.

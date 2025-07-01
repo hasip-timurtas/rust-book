@@ -1,3 +1,131 @@
+# Rust Kitabı - Senior Geliştiriciler İçin Yeniden Yazıldı
+
+Bu repo, The Rust Programming Language kitabının deneyimli TypeScript/JavaScript/Node.js geliştiriciler için yeniden yazılan versiyonunu içerir.
+
+## 🎯 Hedef Kitle
+
+- Senior full stack developers
+- TypeScript, JavaScript, Node.js deneyimi
+- Rust'ta entry-level
+- Sistem tasarımı, performans, clean code, güvenli mimari bilgisi
+
+## ✨ Yaklaşım
+
+### ✅ Yapılan Değişiklikler
+- **Türkçe'ye çeviri** - Teknik İngilizce terminoloji korunarak
+- **Concise & technical** - Gereksiz açıklamalar kaldırıldı  
+- **Beginner tone removal** - Deneyimli developer bakış açısı
+- **TypeScript/Node.js comparisons** - Sadece gerçekten faydalı olduğunda
+- **Practical & minimal** - Doğrudan kullanılabilir örnekler
+
+### ❌ Kaldırılanlar
+- Uzun analogies ve metaphors
+- Step-by-step beginner guidance
+- Tekrarlayan açıklamalar
+- Basic programming concepts
+
+## 📚 Tamamlanan Bölümler
+
+### Temel Kavramlar
+- ✅ **Önsöz** - Rust'ın value proposition'ı, senior dev perspektifi
+- ✅ **Cargo** - Build system, npm ile karşılaştırmalı
+- ✅ **Ownership Sistemi** - Memory management fundamentals
+
+### Memory Management
+- ✅ **Ownership** - Move semantics, TypeScript referanslarla karşılaştırma
+- ✅ **References & Borrowing** - Borrow checker, data races prevention
+- ✅ **Slices** - Zero-copy views, JavaScript array.slice() karşılaştırması
+
+### Data Structures  
+- ✅ **Structs** - TypeScript interfaces ile karşılaştırma, ownership patterns
+- ✅ **Enums** - Algebraic data types, TypeScript union types karşılaştırması
+
+## 🔧 Teknik Vurgular
+
+### Memory Safety
+```rust
+// TypeScript: Runtime risk
+let arr = [1, 2, 3];
+let ref1 = arr;
+let ref2 = arr;
+ref1.push(4); // ref2 also affected
+
+// Rust: Compile-time safety
+let mut arr = vec![1, 2, 3];
+let ref1 = &mut arr;
+let ref2 = &mut arr; // ❌ Compile error
+```
+
+### Zero-Cost Abstractions
+```rust
+// Struct definition - compile-time layout optimization
+struct User {
+    username: String,  // Owned data
+    email: String,     // Zero runtime cost for abstractions
+}
+```
+
+### Type Safety
+```rust
+// Option<T> - Null safety guarantee
+fn get_length(s: Option<String>) -> usize {
+    match s {
+        Some(string) => string.len(),
+        None => 0,  // ✅ Must handle None case
+    }
+}
+```
+
+## 🚀 Öne Çıkan Özellikler
+
+### 1. **Practical Code Examples**
+- Direkt kullanılabilir kod parçacıkları
+- Real-world scenarios
+- Production-ready patterns
+
+### 2. **Architecture Insights**
+- Memory layout optimizations  
+- Compile-time vs runtime trade-offs
+- System design implications
+
+### 3. **Developer Experience**
+- Cargo workflow (npm equivalent)
+- Error handling patterns
+- Debugging approaches
+
+## 📈 Öğrenme Yolu
+
+1. **Ownership** - Rust'ın temel differentiator'ı
+2. **Borrowing** - Memory safety without GC
+3. **Data Structures** - Zero-cost abstractions
+4. **Pattern Matching** - Type-safe control flow
+5. **Error Handling** - `Result<T, E>` ve `Option<T>`
+
+## 🔗 TypeScript Geliştiriciler İçin
+
+### Benzerlikler
+- Type safety ve static analysis
+- Compile-time error catching
+- Generic programming
+- Pattern matching (TS'de discriminated unions)
+
+### Farklar  
+- Manual memory management (ownership)
+- Zero-cost abstractions
+- Immutability by default
+- Explicit error handling
+
+## 🎓 Sonraki Adımlar
+
+Tamamlanan temel kavramlarla:
+- Concurrent programming (async/await)
+- Error handling (`Result<T, E>`)
+- Generic types ve traits
+- Advanced ownership patterns
+- Performance optimizations
+
+Bu yaklaşım, senior geliştiricilerin Rust'ı hızlı ve etkili şekilde öğrenmelerini sağlarken, sistem programlama becerilerini geliştirmelerine odaklanır.
+
 # The Rust Programming Language
 
 ![Build Status](https://github.com/rust-lang/book/workflows/CI/badge.svg)
