@@ -1,24 +1,10 @@
 # Error Handling
 
-Errors are a fact of life in software, so Rust has a number of features for
-handling situations in which something goes wrong. In many cases, Rust requires
-you to acknowledge the possibility of an error and take some action before your
-code will compile. This requirement makes your program more robust by ensuring
-that you’ll discover errors and handle them appropriately before deploying your
-code to production!
+Rust categorizes errors into two types:
 
-Rust groups errors into two major categories: _recoverable_ and _unrecoverable_
-errors. For a recoverable error, such as a _file not found_ error, we most
-likely just want to report the problem to the user and retry the operation.
-Unrecoverable errors are always symptoms of bugs, such as trying to access a
-location beyond the end of an array, and so we want to immediately stop the
-program.
+- **Recoverable errors** - Use `Result<T, E>` to handle expected failures (file not found, network timeout)
+- **Unrecoverable errors** - Use `panic!` macro for bugs and invariant violations (array bounds, null pointer dereference)
 
-Most languages don’t distinguish between these two kinds of errors and handle
-both in the same way, using mechanisms such as exceptions. Rust doesn’t have
-exceptions. Instead, it has the type `Result<T, E>` for recoverable errors and
-the `panic!` macro that stops execution when the program encounters an
-unrecoverable error. This chapter covers calling `panic!` first and then talks
-about returning `Result<T, E>` values. Additionally, we’ll explore
-considerations when deciding whether to try to recover from an error or to stop
-execution.
+Unlike languages with exceptions, Rust makes error handling explicit through the type system. This forces you to decide how to handle each potential failure point, improving reliability and preventing silent failures.
+
+This chapter covers when to use `panic!` vs `Result<T, E>` and how to effectively propagate and handle errors.
