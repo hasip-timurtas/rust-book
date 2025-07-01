@@ -1,24 +1,44 @@
 # Error Handling
 
-Errors are a fact of life in software, so Rust has a number of features for
-handling situations in which something goes wrong. In many cases, Rust requires
-you to acknowledge the possibility of an error and take some action before your
-code will compile. This requirement makes your program more robust by ensuring
-that you’ll discover errors and handle them appropriately before deploying your
-code to production!
+Rust enforces explicit error handling through the type system, eliminating runtime exceptions.
 
-Rust groups errors into two major categories: _recoverable_ and _unrecoverable_
-errors. For a recoverable error, such as a _file not found_ error, we most
-likely just want to report the problem to the user and retry the operation.
-Unrecoverable errors are always symptoms of bugs, such as trying to access a
-location beyond the end of an array, and so we want to immediately stop the
-program.
+## Error Categories
 
-Most languages don’t distinguish between these two kinds of errors and handle
-both in the same way, using mechanisms such as exceptions. Rust doesn’t have
-exceptions. Instead, it has the type `Result<T, E>` for recoverable errors and
-the `panic!` macro that stops execution when the program encounters an
-unrecoverable error. This chapter covers calling `panic!` first and then talks
-about returning `Result<T, E>` values. Additionally, we’ll explore
-considerations when deciding whether to try to recover from an error or to stop
-execution.
+**Recoverable Errors**: `Result<T, E>` for operations that may fail
+- File I/O, network requests, parsing
+- Compositional error handling with `?` operator
+- Similar to Promise chains in TypeScript
+
+**Unrecoverable Errors**: `panic!` for programming bugs
+- Array out-of-bounds, assertion failures
+- Terminates program immediately
+- Similar to throwing in critical paths
+
+## Compared to Exception-Based Languages
+
+**JavaScript/TypeScript**: Runtime exceptions, try-catch blocks
+```javascript
+try {
+    const data = JSON.parse(input);
+    return processData(data);
+} catch (error) {
+    console.error(error);
+    return null;
+}
+```
+
+**Rust**: Compile-time error handling
+```rust
+match serde_json::from_str(input) {
+    Ok(data) => process_data(data),
+    Err(e) => {
+        eprintln!("Error: {}", e);
+        return Err(e);
+    }
+}
+```
+
+**Benefits**: 
+- All error paths explicitly handled at compile time
+- No hidden exceptions
+- Zero-cost abstractions for error propagation

@@ -4,14 +4,45 @@
 
 <a id="object-oriented-programming-features-of-rust"></a>
 
-Object-oriented programming (OOP) is a way of modeling programs. Objects as a
-programmatic concept were introduced in the programming language Simula in the
-1960s. Those objects influenced Alan Kay’s programming architecture in which
-objects pass messages to each other. To describe this architecture, he coined
-the term _object-oriented programming_ in 1967. Many competing definitions
-describe what OOP is, and by some of these definitions Rust is object oriented
-but by others it is not. In this chapter, we’ll explore certain characteristics
-that are commonly considered object oriented and how those characteristics
-translate to idiomatic Rust. We’ll then show you how to implement an
-object-oriented design pattern in Rust and discuss the trade-offs of doing so
-versus implementing a solution using some of Rust’s strengths instead.
+Rust supports some OOP patterns through traits and structs, but emphasizes composition over inheritance and compile-time safety over runtime polymorphism.
+
+## OOP in Rust vs Traditional OOP
+
+**Encapsulation**: ✅ Structs with private fields and public methods
+**Inheritance**: ❌ No class inheritance, use composition and traits
+**Polymorphism**: ✅ Trait objects provide dynamic dispatch
+
+## Rust's Approach
+
+**Composition over Inheritance**: Build complex behavior from simpler components
+**Trait-based Design**: Shared behavior through traits rather than inheritance hierarchies  
+**Zero-cost Abstractions**: Static dispatch by default, dynamic dispatch when needed
+
+## Compared to TypeScript Classes
+
+**TypeScript**: Class-based inheritance
+```typescript
+class Animal {
+    name: string;
+    speak(): void { /* implementation */ }
+}
+class Dog extends Animal {
+    speak(): void { console.log("Woof!"); }
+}
+```
+
+**Rust**: Trait-based composition
+```rust
+trait Animal {
+    fn name(&self) -> &str;
+    fn speak(&self);
+}
+
+struct Dog { name: String }
+impl Animal for Dog {
+    fn name(&self) -> &str { &self.name }
+    fn speak(&self) { println!("Woof!"); }
+}
+```
+
+This chapter explores when OOP patterns are useful in Rust and when Rust's unique features provide better alternatives.

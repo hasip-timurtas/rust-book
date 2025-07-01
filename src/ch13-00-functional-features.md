@@ -1,24 +1,42 @@
 # Functional Language Features: Iterators and Closures
 
-Rust’s design has taken inspiration from many existing languages and
-techniques, and one significant influence is _functional programming_.
-Programming in a functional style often includes using functions as values by
-passing them in arguments, returning them from other functions, assigning them
-to variables for later execution, and so forth.
+Rust provides zero-cost functional programming abstractions that compile to efficient imperative code.
 
-In this chapter, we won’t debate the issue of what functional programming is or
-isn’t but will instead discuss some features of Rust that are similar to
-features in many languages often referred to as functional.
+## Core Concepts
 
-More specifically, we’ll cover:
+**Closures**: Anonymous functions with environment capture
+- Similar to JavaScript arrow functions but with explicit capture semantics
+- Compile-time optimization eliminates capture overhead
 
-- _Closures_, a function-like construct you can store in a variable
-- _Iterators_, a way of processing a series of elements
-- How to use closures and iterators to improve the I/O project in Chapter 12
-- The performance of closures and iterators (spoiler alert: they’re faster than
-  you might think!)
+**Iterators**: Lazy evaluation chains with automatic optimization
+- Functional composition compiles to imperative loops
+- No performance penalty compared to manual iteration
 
-We’ve already covered some other Rust features, such as pattern matching and
-enums, that are also influenced by the functional style. Because mastering
-closures and iterators is an important part of writing idiomatic, fast Rust
-code, we’ll devote this entire chapter to them.
+## Performance Characteristics
+
+**Zero-cost abstractions**: Functional style code performs identically to hand-optimized imperative code through compiler optimization.
+
+**Compared to JavaScript**:
+
+```javascript
+// JavaScript - runtime overhead
+const nums = [1, 2, 3, 4, 5];
+const result = nums
+  .filter(x => x > 2)
+  .map(x => x * 2)
+  .reduce((a, b) => a + b, 0);
+```
+
+```rust
+// Rust - compiles to optimal loop
+let nums = vec![1, 2, 3, 4, 5];
+let result: i32 = nums
+    .iter()
+    .filter(|&x| x > 2)
+    .map(|x| x * 2)
+    .sum();
+```
+
+**Key advantage**: Expressive functional APIs with systems-level performance.
+
+This chapter demonstrates building efficient, readable code through functional patterns while maintaining Rust's performance guarantees.

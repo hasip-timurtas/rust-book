@@ -1,33 +1,46 @@
 # Writing Automated Tests
 
-In his 1972 essay “The Humble Programmer,” Edsger W. Dijkstra said that “program
-testing can be a very effective way to show the presence of bugs, but it is
-hopelessly inadequate for showing their absence.” That doesn’t mean we shouldn’t
-try to test as much as we can!
+Rust's testing framework provides built-in unit and integration testing with zero external dependencies.
 
-Correctness in our programs is the extent to which our code does what we intend
-it to do. Rust is designed with a high degree of concern about the correctness
-of programs, but correctness is complex and not easy to prove. Rust’s type
-system shoulders a huge part of this burden, but the type system cannot catch
-everything. As such, Rust includes support for writing automated software tests.
+## Testing Philosophy
 
-Say we write a function `add_two` that adds 2 to whatever number is passed to
-it. This function’s signature accepts an integer as a parameter and returns an
-integer as a result. When we implement and compile that function, Rust does all
-the type checking and borrow checking that you’ve learned so far to ensure
-that, for instance, we aren’t passing a `String` value or an invalid reference
-to this function. But Rust _can’t_ check that this function will do precisely
-what we intend, which is return the parameter plus 2 rather than, say, the
-parameter plus 10 or the parameter minus 50! That’s where tests come in.
+**Rust's type system** eliminates many bug categories (null pointer exceptions, type errors), but cannot verify business logic correctness.
 
-We can write tests that assert, for example, that when we pass `3` to the
-`add_two` function, the returned value is `5`. We can run these tests whenever
-we make changes to our code to make sure any existing correct behavior has not
-changed.
+**Testing fills the gap** between type safety and correctness verification.
 
-Testing is a complex skill: although we can’t cover in one chapter every detail
-about how to write good tests, in this chapter we will discuss the mechanics of
-Rust’s testing facilities. We’ll talk about the annotations and macros
-available to you when writing your tests, the default behavior and options
-provided for running your tests, and how to organize tests into unit tests and
-integration tests.
+## Built-in Testing Features
+
+- **Unit tests**: `#[test]` annotation, same crate
+- **Integration tests**: Separate `tests/` directory  
+- **Documentation tests**: Code blocks in doc comments
+- **Benchmarks**: Performance testing (nightly only)
+
+## Compared to JavaScript Testing
+
+**JavaScript**: External frameworks (Jest, Mocha, Vitest)
+```javascript
+// Requires dependencies
+import { test, expect } from 'vitest';
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});
+```
+
+**Rust**: Built-in testing
+```rust
+// No external dependencies
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() {
+        assert_eq!(2 + 2, 4);
+    }
+}
+```
+
+**Advantages**: 
+- Zero setup required
+- Integrated with `cargo test`
+- Parallel execution by default
+- Compile-time verification of test code

@@ -1,58 +1,98 @@
 # Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams
 
-Many operations we ask the computer to do can take a while to finish. It would
-be nice if we could do something else while we are waiting for those
-long-running processes to complete. Modern computers offer two techniques for
-working on more than one operation at a time: parallelism and concurrency. Once
-we start writing programs that involve parallel or concurrent operations,
-though, we quickly encounter new challenges inherent to _asynchronous
-programming_, where operations may not finish sequentially in the order they
-were started. This chapter builds on Chapter 16’s use of threads for parallelism
-and concurrency by introducing an alternative approach to asynchronous
-programming: Rust’s Futures, Streams, the `async` and `await` syntax that
-supports them, and the tools for managing and coordinating between asynchronous
-operations.
+Rust's async model provides cooperative concurrency for I/O-bound operations with zero-cost abstractions and compile-time safety guarantees.
 
-Let’s consider an example. Say you’re exporting a video you’ve created of a
+## Async vs Threads
+
+**Threads (Chapter 16)**: Preemptive multitasking for CPU-bound work
+- OS-managed, expensive context switching
+- True parallelism on multi-core systems
+
+**Async**: Cooperative concurrency for I/O-bound work  
+- Application-managed, cheap task switching
+- Single-threaded by default, can be combined with threads
+
+## Compared to JavaScript Async
+
+**JavaScript**: Event loop with Promise-based async/await
+```javascript
+// Runtime-based async execution
+async function fetchData(url) {
+    const response = await fetch(url);
+    return response.json();
+}
+```
+
+**Rust**: Zero-cost futures with compile-time optimization
+```rust
+// Compiled to state machine, no runtime overhead
+async fn fetch_data(url: &str) -> Result<Data, Error> {
+    let response = reqwest::get(url).await?;
+    response.json().await
+}
+```
+
+## Key Concepts
+
+**Futures**: Lazy computation that yields control when waiting
+**Async Runtime**: Executor for driving futures to completion (tokio, async-std)
+**Zero-cost**: Async code compiles to efficient state machines
+
+## Parallelism vs Concurrency
+
+**Concurrency**: Task switching on single core (async, threads)
+**Parallelism**: Simultaneous execution on multiple cores
+
+Rust async provides concurrency by default, can be combined with threading for true parallelism.
+
+## Performance Characteristics
+
+**I/O-bound workloads**: Async typically outperforms threads due to lower overhead
+**CPU-bound workloads**: Threads preferred for utilizing multiple cores
+**Mixed workloads**: Hybrid approaches combining both models
+
+This chapter demonstrates building efficient, scalable I/O systems using Rust's async ecosystem.
+
+Let's consider an example. Say you're exporting a video you've created of a
 family celebration, an operation that could take anywhere from minutes to hours.
 The video export will use as much CPU and GPU power as it can. If you had only
-one CPU core and your operating system didn’t pause that export until it
-completed—that is, if it executed the export _synchronously_—you couldn’t do
+one CPU core and your operating system didn't pause that export until it
+completed—that is, if it executed the export _synchronously_—you couldn't do
 anything else on your computer while that task was running. That would be a
-pretty frustrating experience. Fortunately, your computer’s operating system
+pretty frustrating experience. Fortunately, your computer's operating system
 can, and does, invisibly interrupt the export often enough to let you get other
 work done simultaneously.
 
-Now say you’re downloading a video shared by someone else, which can also take a
+Now say you're downloading a video shared by someone else, which can also take a
 while but does not take up as much CPU time. In this case, the CPU has to wait
 for data to arrive from the network. While you can start reading the data once
 it starts to arrive, it might take some time for all of it to show up. Even once
 the data is all present, if the video is quite large, it could take at least a
-second or two to load it all. That might not sound like much, but it’s a very
+second or two to load it all. That might not sound like much, but it's a very
 long time for a modern processor, which can perform billions of operations every
 second. Again, your operating system will invisibly interrupt your program to
 allow the CPU to perform other work while waiting for the network call to
 finish.
 
 The video export is an example of a _CPU-bound_ or _compute-bound_ operation.
-It’s limited by the computer’s potential data processing speed within the CPU or
+It's limited by the computer's potential data processing speed within the CPU or
 GPU, and how much of that speed it can dedicate to the operation. The video
-download is an example of an _IO-bound_ operation, because it’s limited by the
-speed of the computer’s _input and output_; it can only go as fast as the data
+download is an example of an _IO-bound_ operation, because it's limited by the
+speed of the computer's _input and output_; it can only go as fast as the data
 can be sent across the network.
 
-In both of these examples, the operating system’s invisible interrupts provide a
+In both of these examples, the operating system's invisible interrupts provide a
 form of concurrency. That concurrency happens only at the level of the entire
 program, though: the operating system interrupts one program to let other
 programs get work done. In many cases, because we understand our programs at a
 much more granular level than the operating system does, we can spot
-opportunities for concurrency that the operating system can’t see.
+opportunities for concurrency that the operating system can't see.
 
-For example, if we’re building a tool to manage file downloads, we should be
-able to write our program so that starting one download won’t lock up the UI,
+For example, if we're building a tool to manage file downloads, we should be
+able to write our program so that starting one download won't lock up the UI,
 and users should be able to start multiple downloads at the same time. Many
 operating system APIs for interacting with the network are _blocking_, though;
-that is, they block the program’s progress until the data they’re processing is
+that is, they block the program's progress until the data they're processing is
 completely ready.
 
 > Note: This is how _most_ function calls work, if you think about it. However,
@@ -63,7 +103,7 @@ completely ready.
 
 We could avoid blocking our main thread by spawning a dedicated thread to
 download each file. However, the overhead of those threads would eventually
-become a problem. It would be preferable if the call didn’t block in the first
+become a problem. It would be preferable if the call didn't block in the first
 place. It would also be better if we could write in the same direct style we use
 in blocking code, similar to this:
 
@@ -72,11 +112,11 @@ let data = fetch_data_from(url).await;
 println!("{data}");
 ```
 
-That is exactly what Rust’s _async_ (short for _asynchronous_) abstraction gives
-us. In this chapter, you’ll learn all about async as we cover the following
+That is exactly what Rust's _async_ (short for _asynchronous_) abstraction gives
+us. In this chapter, you'll learn all about async as we cover the following
 topics:
 
-- How to use Rust’s `async` and `await` syntax
+- How to use Rust's `async` and `await` syntax
 - How to use the async model to solve some of the same challenges we looked at
   in Chapter 16
 - How multithreading and async provide complementary solutions, that you can
@@ -87,7 +127,7 @@ detour to discuss the differences between parallelism and concurrency.
 
 ### Parallelism and Concurrency
 
-We’ve treated parallelism and concurrency as mostly interchangeable so far. Now
+We've treated parallelism and concurrency as mostly interchangeable so far. Now
 we need to distinguish between them more precisely, because the differences will
 show up as we start working.
 
@@ -98,7 +138,7 @@ use a mix of the two approaches.
 When an individual works on several different tasks before any of them is
 complete, this is _concurrency_. Maybe you have two different projects checked
 out on your computer, and when you get bored or stuck on one project, you switch
-to the other. You’re just one person, so you can’t make progress on both tasks
+to the other. You're just one person, so you can't make progress on both tasks
 at the exact same time, but you can multi-task, making progress on one at a time
 by switching between them (see Figure 17-1).
 
@@ -124,14 +164,14 @@ progress at the exact same time (see Figure 17-2).
 
 In both of these workflows, you might have to coordinate between different
 tasks. Maybe you _thought_ the task assigned to one person was totally
-independent from everyone else’s work, but it actually requires another person
+independent from everyone else's work, but it actually requires another person
 on the team to finish their task first. Some of the work could be done in
 parallel, but some of it was actually _serial_: it could only happen in a
 series, one task after the other, as in Figure 17-3.
 
 <figure>
 
-<img src="img/trpl17-03.svg" class="center" alt="A diagram with boxes labeled Task A and Task B, with diamonds in them representing subtasks. There are arrows pointing from A1 to A2, A2 to a pair of thick vertical lines like a “pause” symbol, from that symbol to A3, B1 to B2, B2 to B3, which is below that symbol, B3 to A3, and B3 to B4." />
+<img src="img/trpl17-03.svg" class="center" alt="A diagram with boxes labeled Task A and Task B, with diamonds in them representing subtasks. There are arrows pointing from A1 to A2, A2 to a pair of thick vertical lines like a "pause" symbol, from that symbol to A3, B1 to B2, B2 to B3, which is below that symbol, B3 to A3, and B3 to B4." />
 
 <figcaption>Figure 17-3: A partially parallel workflow, where work happens on Task A and Task B independently until Task A3 is blocked on the results of Task B3.</figcaption>
 
@@ -141,9 +181,9 @@ Likewise, you might realize that one of your own tasks depends on another of
 your tasks. Now your concurrent work has also become serial.
 
 Parallelism and concurrency can intersect with each other, too. If you learn
-that a colleague is stuck until you finish one of your tasks, you’ll probably
-focus all your efforts on that task to “unblock” your colleague. You and your
-coworker are no longer able to work in parallel, and you’re also no longer able
+that a colleague is stuck until you finish one of your tasks, you'll probably
+focus all your efforts on that task to "unblock" your colleague. You and your
+coworker are no longer able to work in parallel, and you're also no longer able
 to work concurrently on your own tasks.
 
 The same basic dynamics come into play with software and hardware. On a machine
@@ -155,9 +195,9 @@ it can also do work in parallel. One core can be performing one task while
 another core performs a completely unrelated one, and those operations actually
 happen at the same time.
 
-When working with async in Rust, we’re always dealing with concurrency.
+When working with async in Rust, we're always dealing with concurrency.
 Depending on the hardware, the operating system, and the async runtime we are
 using (more on async runtimes shortly), that concurrency may also use parallelism
 under the hood.
 
-Now, let’s dive into how async programming in Rust actually works.
+Now, let's dive into how async programming in Rust actually works.

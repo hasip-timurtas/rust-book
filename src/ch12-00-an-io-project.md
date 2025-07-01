@@ -1,43 +1,42 @@
 # An I/O Project: Building a Command Line Program
 
-This chapter is a recap of the many skills you’ve learned so far and an
-exploration of a few more standard library features. We’ll build a command line
-tool that interacts with file and command line input/output to practice some of
-the Rust concepts you now have under your belt.
+This chapter demonstrates real-world Rust application development by building a `grep` clone, integrating concepts from previous chapters.
 
-Rust’s speed, safety, single binary output, and cross-platform support make it
-an ideal language for creating command line tools, so for our project, we’ll
-make our own version of the classic command line search tool `grep`
-(**g**lobally search a **r**egular **e**xpression and **p**rint). In the
-simplest use case, `grep` searches a specified file for a specified string. To
-do so, `grep` takes as its arguments a file path and a string. Then it reads
-the file, finds lines in that file that contain the string argument, and prints
-those lines.
+## Project Overview
 
-Along the way, we’ll show how to make our command line tool use the terminal
-features that many other command line tools use. We’ll read the value of an
-environment variable to allow the user to configure the behavior of our tool.
-We’ll also print error messages to the standard error console stream (`stderr`)
-instead of standard output (`stdout`) so that, for example, the user can
-redirect successful output to a file while still seeing error messages onscreen.
+**Goal**: Build a command-line text search tool similar to `grep`
+- File I/O and argument parsing
+- Error handling and environment variables  
+- Performance-conscious implementation
+- Cross-platform binary output
 
-One Rust community member, Andrew Gallant, has already created a fully
-featured, very fast version of `grep`, called `ripgrep`. By comparison, our
-version will be fairly simple, but this chapter will give you some of the
-background knowledge you need to understand a real-world project such as
-`ripgrep`.
+## Skills Integration
 
-Our `grep` project will combine a number of concepts you’ve learned so far:
+**Applied Concepts**:
+- Module organization (Chapter 7)
+- Collections and string handling (Chapter 8)  
+- Robust error handling (Chapter 9)
+- Generics and lifetimes (Chapter 10)
+- Comprehensive testing (Chapter 11)
 
-- Organizing code ([Chapter 7][ch7]<!-- ignore -->)
-- Using vectors and strings ([Chapter 8][ch8]<!-- ignore -->)
-- Handling errors ([Chapter 9][ch9]<!-- ignore -->)
-- Using traits and lifetimes where appropriate ([Chapter 10][ch10]<!-- ignore -->)
-- Writing tests ([Chapter 11][ch11]<!-- ignore -->)
+**New Concepts**:
+- Closures and iterators (preview of Chapter 13)
+- Trait objects (preview of Chapter 18)
 
-We’ll also briefly introduce closures, iterators, and trait objects, which
-[Chapter 13][ch13]<!-- ignore --> and [Chapter 18][ch18]<!-- ignore --> will
-cover in detail.
+## Why CLI Tools in Rust
+
+**Performance**: Zero-cost abstractions, compiled binaries
+**Safety**: Memory safety without runtime overhead
+**Deployment**: Single binary, no runtime dependencies
+**Cross-platform**: Consistent behavior across operating systems
+
+**Comparison to Node.js CLI tools**:
+- No interpreter required
+- Faster startup time
+- Lower memory usage
+- Static typing benefits
+
+This project provides hands-on experience with systems programming patterns and professional Rust development practices.
 
 [ch7]: ch07-00-managing-growing-projects-with-packages-crates-and-modules.html
 [ch8]: ch08-00-common-collections.html

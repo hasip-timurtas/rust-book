@@ -1,22 +1,40 @@
 # Advanced Features
 
-By now, you’ve learned the most commonly used parts of the Rust programming
-language. Before we do one more project in Chapter 21, we’ll look at a few
-aspects of the language you might run into every once in a while, but may not
-use every day. You can use this chapter as a reference for when you encounter
-any unknowns. The features covered here are useful in very specific situations.
-Although you might not reach for them often, we want to make sure you have a
-grasp of all the features Rust has to offer.
+This chapter covers specialized Rust features for systems programming, performance optimization, and metaprogramming.
 
-In this chapter, we’ll cover:
+## Topics Covered
 
-- Unsafe Rust: how to opt out of some of Rust’s guarantees and take
-  responsibility for manually upholding those guarantees
-- Advanced traits: associated types, default type parameters, fully qualified
-  syntax, supertraits, and the newtype pattern in relation to traits
-- Advanced types: more about the newtype pattern, type aliases, the never type,
-  and dynamically sized types
-- Advanced functions and closures: function pointers and returning closures
-- Macros: ways to define code that defines more code at compile time
+**Unsafe Rust**: Direct memory manipulation and FFI
+- Raw pointers and manual memory management
+- Calling C functions and implementing low-level optimizations
+- When safety guarantees must be selectively relaxed
 
-It’s a panoply of Rust features with something for everyone! Let’s dive in!
+**Advanced Traits**: Sophisticated type relationships
+- Associated types for cleaner generic interfaces
+- Higher-kinded types and trait object design patterns
+- Newtype pattern for zero-cost type safety
+
+**Advanced Types**: Specialized type system features
+- Type aliases for complex signatures
+- Never type (`!`) for functions that don't return
+- Dynamically sized types (DSTs) and unsized types
+
+**Function Pointers & Closures**: Function-as-data patterns
+- Function pointers vs closures performance characteristics  
+- Returning closures and higher-order functions
+- Zero-cost closure optimization
+
+**Macros**: Compile-time code generation
+- Declarative macros for pattern-based code generation
+- Procedural macros for custom syntax and derive implementations
+- Metaprogramming for eliminating boilerplate
+
+## When to Use Advanced Features
+
+These features address specific use cases:
+- **Performance-critical code**: Unsafe blocks for manual optimization
+- **Library APIs**: Advanced traits for ergonomic interfaces  
+- **FFI & Systems Programming**: Unsafe Rust for hardware interaction
+- **Code Generation**: Macros for reducing repetition
+
+Most application code won't need these features, but they're essential for systems programming and library development.
