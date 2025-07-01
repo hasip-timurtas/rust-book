@@ -1,24 +1,12 @@
 # Functional Language Features: Iterators and Closures
 
-Rust’s design has taken inspiration from many existing languages and
-techniques, and one significant influence is _functional programming_.
-Programming in a functional style often includes using functions as values by
-passing them in arguments, returning them from other functions, assigning them
-to variables for later execution, and so forth.
+Rust incorporates functional programming concepts including closures and iterators, both offering zero-cost abstractions with compile-time optimizations.
 
-In this chapter, we won’t debate the issue of what functional programming is or
-isn’t but will instead discuss some features of Rust that are similar to
-features in many languages often referred to as functional.
+This chapter covers:
 
-More specifically, we’ll cover:
+- **Closures**: Anonymous functions that capture their environment
+- **Iterators**: Lazy evaluation for processing data sequences  
+- **Performance**: Both compile to equivalent machine code as hand-written loops
+- **Practical application**: Refactoring I/O operations using functional patterns
 
-- _Closures_, a function-like construct you can store in a variable
-- _Iterators_, a way of processing a series of elements
-- How to use closures and iterators to improve the I/O project in Chapter 12
-- The performance of closures and iterators (spoiler alert: they’re faster than
-  you might think!)
-
-We’ve already covered some other Rust features, such as pattern matching and
-enums, that are also influenced by the functional style. Because mastering
-closures and iterators is an important part of writing idiomatic, fast Rust
-code, we’ll devote this entire chapter to them.
+These features enable expressive, high-performance code while maintaining Rust's safety guarantees.
