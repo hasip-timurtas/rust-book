@@ -4,90 +4,43 @@
 
 <a id="extensible-concurrency-with-the-sync-and-send-traits"></a>
 
-Interestingly, almost every concurrency feature we’ve talked about so far in
-this chapter has been part of the standard library, not the language. Your
-options for handling concurrency are not limited to the language or the standard
-library; you can write your own concurrency features or use those written by
-others.
+Rust's concurrency safety is enforced through two marker traits: `Send` and `Sync`. These traits are implemented automatically for most types but can be manually implemented for custom concurrent types.
 
-However, among the key concurrency concepts that are embedded in the language
-rather than the standard library are the `std::marker` traits `Send` and
-`Sync`.
+### The `Send` Trait
 
-### Allowing Transference of Ownership Between Threads with `Send`
+`Send` indicates that ownership of a type can be transferred between threads safely. Almost all Rust types implement `Send`, with notable exceptions:
 
-The `Send` marker trait indicates that ownership of values of the type
-implementing `Send` can be transferred between threads. Almost every Rust type
-is `Send`, but there are some exceptions, including `Rc<T>`: this cannot
-implement `Send` because if you cloned an `Rc<T>` value and tried to transfer
-ownership of the clone to another thread, both threads might update the
-reference count at the same time. For this reason, `Rc<T>` is implemented for
-use in single-threaded situations where you don’t want to pay the thread-safe
-performance penalty.
+- `Rc<T>`: Not `Send` because non-atomic reference counting creates race conditions
+- Raw pointers: Lack safety guarantees
 
-Therefore, Rust’s type system and trait bounds ensure that you can never
-accidentally send an `Rc<T>` value across threads unsafely. When we tried to do
-this in Listing 16-14, we got the error `the trait Send is not implemented for
-Rc<Mutex<i32>>`. When we switched to `Arc<T>`, which does implement `Send`, the
-code compiled.
+Types composed entirely of `Send` types automatically implement `Send`. When we attempted to send `Rc<Mutex<i32>>` between threads in Listing 16-14, the compiler prevented this due to `Rc<T>`'s lack of `Send` implementation.
 
-Any type composed entirely of `Send` types is automatically marked as `Send` as
-well. Almost all primitive types are `Send`, aside from raw pointers, which
-we’ll discuss in Chapter 20.
+### The `Sync` Trait  
 
-### Allowing Access from Multiple Threads with `Sync`
+`Sync` indicates that a type is safe to access from multiple threads simultaneously. A type `T` implements `Sync` if `&T` (an immutable reference to `T`) implements `Send`.
 
-The `Sync` marker trait indicates that it is safe for the type implementing
-`Sync` to be referenced from multiple threads. In other words, any type `T`
-implements  `Sync` if `&T` (an immutable reference to `T`) implements `Send`,
-meaning the reference can be sent safely to another thread. Similar to `Send`,
-primitive types all implement `Sync`, and types composed entirely of types that
-implement `Sync` also implement `Sync`.
+Types that don't implement `Sync`:
+- `Rc<T>`: Non-atomic reference counting unsafe for concurrent access
+- `RefCell<T>` and `Cell<T>`: Runtime borrow checking not thread-safe
+- `Mutex<T>`: Implements `Sync` and enables multi-threaded shared access
 
-The smart pointer `Rc<T>` also doesn’t implement `Sync` for the same reasons
-that it doesn’t implement `Send`. The `RefCell<T>` type (which we talked about
-in Chapter 15) and the family of related `Cell<T>` types don’t implement `Sync`.
-The implementation of borrow checking that `RefCell<T>` does at runtime is not
-thread-safe. The smart pointer `Mutex<T>` implements `Sync` and can be used to
-share access with multiple threads as you saw in [“Sharing a `Mutex<T>` Between
-Multiple Threads”][sharing-a-mutext-between-multiple-threads]<!-- ignore -->.
+Primitive types implement both `Send` and `Sync`. Types composed entirely of `Send` and `Sync` types automatically implement these traits.
 
-### Implementing `Send` and `Sync` Manually Is Unsafe
+### Manual Implementation Safety
 
-Because types composed entirely of other types that implement the `Send` and
-`Sync` traits also automatically implement `Send` and `Sync`, we don’t have to
-implement those traits manually. As marker traits, they don’t even have any
-methods to implement. They’re just useful for enforcing invariants related to
-concurrency.
+Manually implementing `Send` and `Sync` requires `unsafe` code and careful consideration of concurrency invariants. Building new concurrent types outside the `Send`/`Sync` ecosystem demands deep understanding of thread safety guarantees.
 
-Manually implementing these traits involves implementing unsafe Rust code.
-We’ll talk about using unsafe Rust code in Chapter 20; for now, the important
-information is that building new concurrent types not made up of `Send` and
-`Sync` parts requires careful thought to uphold the safety guarantees. [“The
-Rustonomicon”][nomicon] has more information about these guarantees and how to
-uphold them.
+For production systems, prefer established concurrent data structures from crates like `crossbeam` or `tokio` rather than implementing custom concurrent types.
 
 ## Summary
 
-This isn’t the last you’ll see of concurrency in this book: the next chapter
-focuses on async programming, and the project in Chapter 21 will use the
-concepts in this chapter in a more realistic situation than the smaller examples
-discussed here.
+Rust's concurrency model combines:
+- **Channels**: Message passing with ownership transfer
+- **Mutexes**: Shared state with exclusive access
+- **Atomic types**: Lock-free concurrent operations  
+- **Send/Sync traits**: Compile-time thread safety guarantees
 
-As mentioned earlier, because very little of how Rust handles concurrency is
-part of the language, many concurrency solutions are implemented as crates.
-These evolve more quickly than the standard library, so be sure to search
-online for the current, state-of-the-art crates to use in multithreaded
-situations.
-
-The Rust standard library provides channels for message passing and smart
-pointer types, such as `Mutex<T>` and `Arc<T>`, that are safe to use in
-concurrent contexts. The type system and the borrow checker ensure that the
-code using these solutions won’t end up with data races or invalid references.
-Once you get your code to compile, you can rest assured that it will happily
-run on multiple threads without the kinds of hard-to-track-down bugs common in
-other languages. Concurrent programming is no longer a concept to be afraid of:
-go forth and make your programs concurrent, fearlessly!
+The type system and borrow checker eliminate data races and memory safety issues at compile time, enabling fearless concurrency. Concurrent programming becomes a design decision rather than a source of runtime bugs.
 
 [sharing-a-mutext-between-multiple-threads]: ch16-03-shared-state.html#sharing-a-mutext-between-multiple-threads
 [nomicon]: ../nomicon/index.html
