@@ -44,4 +44,4 @@ editable = true
 # output-mode = "default"
 
 [rust]
-edition = "2024"
+edition = "2021"
