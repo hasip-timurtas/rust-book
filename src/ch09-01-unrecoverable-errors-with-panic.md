@@ -11,7 +11,7 @@ panic = 'abort'  # Skip unwinding, let OS clean up (smaller binary)
 
 ### Explicit Panic
 
-```rust,should_panic,panics
+```rust,editable,should_panic,panics
 fn main() {
     panic!("crash and burn");
 }
@@ -24,7 +24,7 @@ thread 'main' panicked at 'crash and burn', src/main.rs:2:5
 
 ### Panic from Invalid Operations
 
-```rust,should_panic,panics
+```rust,editable,should_panic,panics
 fn main() {
     let v = vec![1, 2, 3];
     v[99]; // Index out of bounds triggers panic
@@ -64,7 +64,7 @@ Start debugging from the first line mentioning your code (line 6 above). Lines a
 - Contract violations in functions
 
 **Example:**
-```rust
+```rust,editable
 fn get_user(id: u32) -> User {
     if id == 0 {
         panic!("User ID cannot be zero"); // Contract violation

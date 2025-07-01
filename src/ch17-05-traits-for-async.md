@@ -4,7 +4,7 @@ Understanding the underlying traits enables effective async programming and trou
 
 ### The Future Trait
 
-```rust
+```rust,editable
 use std::pin::Pin;
 use std::task::{Context, Poll};
 
@@ -20,7 +20,7 @@ pub trait Future {
 - `poll()`: State machine driver, called by the runtime
 - `Poll<T>`: Either `Ready(T)` or `Pending`
 
-```rust
+```rust,editable
 enum Poll<T> {
     Ready(T),
     Pending,
@@ -29,7 +29,7 @@ enum Poll<T> {
 
 **Runtime interaction**: `await` compiles to repeated `poll()` calls in a loop:
 
-```rust,ignore
+```rust,editable,ignore
 let mut page_title_fut = page_title(url);
 loop {
     match page_title_fut.poll(cx) {
@@ -47,7 +47,7 @@ The `Context` parameter enables runtime coordination - futures register wake-up 
 
 **Problem**: Async state machines can contain self-references. Moving such structures breaks internal pointers.
 
-```rust
+```rust,editable
 // Simplified state machine representation
 struct AsyncStateMachine {
     state: State,
@@ -58,14 +58,14 @@ struct AsyncStateMachine {
 
 **Solution**: `Pin<T>` prevents moving the pointed-to value.
 
-```rust
+```rust,editable
 // Pin prevents the inner value from moving
 let pinned: Pin<Box<AsyncStateMachine>> = Box::pin(state_machine);
 ```
 
 **`Unpin` marker trait**: Types safe to move even when pinned. Most types implement `Unpin` automatically.
 
-```rust
+```rust,editable
 // Most types can be moved freely
 let string = String::from("hello");
 let pinned_string = Pin::new(&mut string); // OK - String: Unpin
@@ -81,7 +81,7 @@ let pinned_future = Box::pin(future); // Required for join_all()
 - Use `Box::pin()` or `pin!()` macro when required
 - Stack allocation (`pin!`) vs heap allocation (`Box::pin`)
 
-```rust
+```rust,editable
 use std::pin::pin;
 
 // Stack pinning (preferred when lifetime allows)
@@ -95,7 +95,7 @@ let fut = Box::pin(async_operation());
 
 Streams combine `Iterator` and `Future` concepts:
 
-```rust
+```rust,editable
 use std::pin::Pin;
 use std::task::{Context, Poll};
 
@@ -116,7 +116,7 @@ trait Stream {
 
 **StreamExt trait**: Provides high-level methods like `next()`, `map()`, `filter()`:
 
-```rust
+```rust,editable
 // Simplified StreamExt implementation
 trait StreamExt: Stream {
     async fn next(&mut self) -> Option<Self::Item> 
@@ -150,7 +150,7 @@ trait StreamExt: Stream {
 - Enables backpressure and cancellation
 
 **Error patterns**:
-```rust
+```rust,editable
 // Error: Missing StreamExt
 let mut stream = some_stream();
 let item = stream.next().await; // ❌ No method `next`

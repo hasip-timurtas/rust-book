@@ -4,7 +4,7 @@
 
 The current server blocks on each request:
 
-```rust,no_run
+```rust,editable,no_run
 // /sleep endpoint demonstrates the blocking issue
 if buffer.starts_with(b"GET /sleep HTTP/1.1\r\n") {
     thread::sleep(Duration::from_secs(5));
@@ -24,7 +24,7 @@ if buffer.starts_with(b"GET /sleep HTTP/1.1\r\n") {
 
 #### 1. Basic Threading (Naive Approach)
 
-```rust,no_run
+```rust,editable,no_run
 use std::thread;
 
 for stream in listener.incoming() {
@@ -39,7 +39,7 @@ for stream in listener.incoming() {
 
 #### 2. ThreadPool API Design
 
-```rust,ignore
+```rust,editable,ignore
 let pool = ThreadPool::new(4);
 
 for stream in listener.incoming() {
@@ -53,7 +53,7 @@ for stream in listener.incoming() {
 #### 3. ThreadPool Implementation
 
 **Core structure**:
-```rust
+```rust,editable
 use std::sync::{mpsc, Arc, Mutex};
 
 pub struct ThreadPool {
@@ -70,7 +70,7 @@ type Job = Box<dyn FnOnce() + Send + 'static>;
 ```
 
 **Constructor with validation**:
-```rust
+```rust,editable
 impl ThreadPool {
     pub fn new(size: usize) -> ThreadPool {
         assert!(size > 0);
@@ -92,7 +92,7 @@ impl ThreadPool {
 ```
 
 **Job execution**:
-```rust
+```rust,editable
 impl ThreadPool {
     pub fn execute<F>(&self, f: F)
     where
@@ -105,7 +105,7 @@ impl ThreadPool {
 ```
 
 **Worker implementation**:
-```rust
+```rust,editable
 impl Worker {
     fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Worker {
         let thread = thread::spawn(move || loop {

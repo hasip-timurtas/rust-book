@@ -6,7 +6,7 @@ Add case-insensitive search controlled by environment variables.
 
 <Listing number="12-20" file-name="src/lib.rs" caption="Adding test for case-insensitive functionality">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-20/src/lib.rs:here}}
 ```
 
@@ -16,7 +16,7 @@ Add case-insensitive search controlled by environment variables.
 
 <Listing number="12-21" file-name="src/lib.rs" caption="Case-insensitive search function">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-21/src/lib.rs:here}}
 ```
 
@@ -31,7 +31,7 @@ Key points:
 
 Add environment variable support to the `Config` struct:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-22/src/main.rs:here}}
 ```
 
@@ -39,7 +39,7 @@ Update the `run` function to use the appropriate search function:
 
 <Listing number="12-22" file-name="src/main.rs" caption="Conditional search based on configuration">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-22/src/main.rs:there}}
 ```
 
@@ -49,7 +49,7 @@ Update the `run` function to use the appropriate search function:
 
 <Listing number="12-23" file-name="src/main.rs" caption="Checking for `IGNORE_CASE` environment variable">
 
-```rust,ignore,noplayground
+```rust,editable,ignore,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-23/src/main.rs:here}}
 ```
 

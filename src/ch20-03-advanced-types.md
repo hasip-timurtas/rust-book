@@ -4,7 +4,7 @@
 
 Compile-time type safety and abstraction:
 
-```rust
+```rust,editable
 struct UserId(u32);
 struct ProductId(u32);
 
@@ -18,7 +18,7 @@ fn get_user(id: UserId) -> User { /* ... */ }
 
 Convenience syntax for complex types:
 
-```rust
+```rust,editable
 type Kilometers = i32;  // No type safety
 type Thunk = Box<dyn Fn() + Send + 'static>;
 
@@ -32,7 +32,7 @@ fn write_data() -> Result<()> { /* ... */ }
 
 Represents computations that never return:
 
-```rust
+```rust,editable
 fn never_returns() -> ! {
     panic!("This function never returns!");
 }
@@ -50,7 +50,7 @@ let guess: u32 = match guess.trim().parse() {
 
 Types with unknown compile-time size:
 
-```rust
+```rust,editable
 // str is a DST (not &str)
 let s1: &str = "hello";      // OK: reference with size info
 let s2: Box<str> = "hello".into();  // OK: smart pointer
@@ -65,7 +65,7 @@ let s2: Box<str> = "hello".into();  // OK: smart pointer
 
 Generic functions implicitly require `Sized`:
 
-```rust
+```rust,editable
 fn generic<T>(t: T) {}           // Actually: fn generic<T: Sized>(t: T)
 fn flexible<T: ?Sized>(t: &T) {} // ?Sized relaxes the bound
 ```

@@ -22,7 +22,7 @@ Example test with output:
 
 <Listing number="11-10" file-name="src/lib.rs" caption="Tests with `println!` output">
 
-```rust,panics,noplayground
+```rust,editable,panics,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-10/src/lib.rs}}
 ```
 
@@ -52,7 +52,7 @@ Module names are part of test names, so you can filter by module.
 
 Mark expensive tests to skip during normal runs:
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-11-ignore-a-test/src/lib.rs:here}}
 ```
 

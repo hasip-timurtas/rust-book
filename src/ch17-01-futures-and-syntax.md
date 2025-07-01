@@ -8,7 +8,7 @@ Key concepts:
 - Futures are lazy - they do nothing until awaited
 - Each await point is where execution can pause/resume
 
-```rust,ignore
+```rust,editable,ignore
 async fn fetch_title(url: &str) -> Option<String> {
     let response = http_get(url).await;  // Yield control here
     let html = response.text().await;    // And here
@@ -29,7 +29,7 @@ $ cargo add trpl
 
 <Listing number="17-1" file-name="src/main.rs" caption="Async function to extract page title">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-01/src/main.rs:all}}
 ```
 
@@ -43,7 +43,7 @@ Key points:
 
 <Listing number="17-2" file-name="src/main.rs" caption="Method chaining with await">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-02/src/main.rs:chaining}}
 ```
 
@@ -52,12 +52,12 @@ Key points:
 ### Async Function Compilation
 
 The compiler transforms:
-```rust
+```rust,editable
 async fn page_title(url: &str) -> Option<String> { /* body */ }
 ```
 
 Into roughly:
-```rust
+```rust,editable
 fn page_title(url: &str) -> impl Future<Output = Option<String>> {
     async move { /* body */ }
 }
@@ -69,7 +69,7 @@ fn page_title(url: &str) -> impl Future<Output = Option<String>> {
 
 <Listing number="17-3" caption="Attempted async main (doesn't compile)" file-name="src/main.rs">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-03/src/main.rs:main}}
 ```
 
@@ -79,7 +79,7 @@ Fix with `trpl::run`:
 
 <Listing number="17-4" caption="Using trpl::run to execute async code" file-name="src/main.rs">
 
-```rust,should_panic,noplayground
+```rust,editable,should_panic,noplayground
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-04/src/main.rs:run}}
 ```
 
@@ -91,7 +91,7 @@ The runtime manages the state machine that Rust creates from async blocks. Each 
 
 <Listing number="17-5" caption="Racing two HTTP requests" file-name="src/main.rs">
 
-```rust,should_panic,noplayground
+```rust,editable,should_panic,noplayground
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-05/src/main.rs:all}}
 ```
 
@@ -103,7 +103,7 @@ The runtime manages the state machine that Rust creates from async blocks. Each 
 
 Async blocks compile to state machines. The runtime (executor) manages these machines:
 
-```rust
+```rust,editable
 enum PageTitleState {
     Start,
     WaitingForResponse,

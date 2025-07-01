@@ -4,7 +4,7 @@
 
 Create `main.rs`:
 
-```rust
+```rust,editable
 fn main() {
     println!("Hello, world!");
 }
@@ -19,7 +19,7 @@ $ .\main.exe               # Windows
 
 ### Program Structure
 
-```rust
+```rust,editable
 fn main() {                 // Entry point (like main() in C)
     println!("Hello, world!");  // Macro call (note the !)
 }

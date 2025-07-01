@@ -8,7 +8,7 @@ Starting from inline modules, extract them to separate files:
 
 <Listing number="7-21" file-name="src/lib.rs" caption="Declaring the `front_of_house` module whose body will be in *src/front_of_house.rs*">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-21-and-22/src/lib.rs}}
 ```
 
@@ -16,7 +16,7 @@ Starting from inline modules, extract them to separate files:
 
 <Listing number="7-22" file-name="src/front_of_house.rs" caption="Definitions inside the `front_of_house` module in *src/front_of_house.rs*">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-21-and-22/src/front_of_house.rs}}
 ```
 
@@ -30,7 +30,7 @@ For submodules, create a directory structure:
 
 <Listing number="07-3" file-name="src/front_of_house.rs" caption="Example code in src/front_of_house.rs">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/no-listing-02-extracting-hosting/src/front_of_house.rs}}
 ```
 
@@ -38,7 +38,7 @@ For submodules, create a directory structure:
 
 <Listing number="07-4" file-name="src/front_of_house/hosting.rs" caption="Example code in src/front_of_house/hosting.rs">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/no-listing-02-extracting-hosting/src/front_of_house/hosting.rs}}
 ```
 

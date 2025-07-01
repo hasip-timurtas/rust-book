@@ -18,7 +18,7 @@ Extract argument parsing into a dedicated function:
 
 <Listing number="12-5" file-name="src/main.rs" caption="Extracting `parse_config` function">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-05/src/main.rs:here}}
 ```
 
@@ -30,7 +30,7 @@ Use a struct instead of tuple for better semantics:
 
 <Listing number="12-6" file-name="src/main.rs" caption="Refactoring to return `Config` struct">
 
-```rust,should_panic,noplayground
+```rust,editable,should_panic,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-06/src/main.rs:here}}
 ```
 
@@ -44,7 +44,7 @@ Convert to associated function following Rust conventions:
 
 <Listing number="12-7" file-name="src/main.rs" caption="Converting to `Config::new`">
 
-```rust,should_panic,noplayground
+```rust,editable,should_panic,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-07/src/main.rs:here}}
 ```
 
@@ -56,7 +56,7 @@ Replace `panic!` with proper error handling:
 
 <Listing number="12-8" file-name="src/main.rs" caption="Adding argument validation">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-08/src/main.rs:here}}
 ```
 
@@ -68,7 +68,7 @@ Better practice: return `Result` instead of panicking:
 
 <Listing number="12-9" file-name="src/main.rs" caption="Returning `Result` from `Config::build`">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-09/src/main.rs:here}}
 ```
 
@@ -76,7 +76,7 @@ Better practice: return `Result` instead of panicking:
 
 <Listing number="12-10" file-name="src/main.rs" caption="Handling errors in main">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-10/src/main.rs:here}}
 ```
 
@@ -90,7 +90,7 @@ Separate program logic from main:
 
 <Listing number="12-11" file-name="src/main.rs" caption="Extracting `run` function">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-11/src/main.rs:here}}
 ```
 
@@ -102,7 +102,7 @@ Make `run` return `Result` for proper error propagation:
 
 <Listing number="12-12" file-name="src/main.rs" caption="Returning `Result` from `run`">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-12/src/main.rs:here}}
 ```
 
@@ -112,7 +112,7 @@ Using `Box<dyn Error>` trait object for flexible error types. The `?` operator p
 
 Handle the returned `Result` in main:
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch12-an-io-project/no-listing-01-handling-errors-in-main/src/main.rs:here}}
 ```
 
@@ -122,7 +122,7 @@ Move business logic to lib.rs for better testability:
 
 <Listing number="12-13" file-name="src/lib.rs" caption="Defining search function signature">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-13/src/lib.rs}}
 ```
 
@@ -130,7 +130,7 @@ Move business logic to lib.rs for better testability:
 
 <Listing number="12-14" file-name="src/main.rs" caption="Using the library crate">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-14/src/main.rs:here}}
 ```
 

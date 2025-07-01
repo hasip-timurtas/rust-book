@@ -18,7 +18,7 @@ Consider this scenario: a shirt giveaway system that assigns colors based on use
 
 <Listing number="13-1" file-name="src/main.rs" caption="Shirt company giveaway situation">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-01/src/main.rs}}
 ```
 
@@ -36,14 +36,14 @@ Closures don't require explicit type annotations in most cases—the compiler in
 
 <Listing number="13-2" file-name="src/main.rs" caption="Optional type annotations in closures">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-02/src/main.rs:here}}
 ```
 
 </Listing>
 
 Syntax comparison:
-```rust,ignore
+```rust,editable,ignore
 fn  add_one_v1   (x: u32) -> u32 { x + 1 }
 let add_one_v2 = |x: u32| -> u32 { x + 1 };
 let add_one_v3 = |x|             { x + 1 };
@@ -54,7 +54,7 @@ Once a closure's types are inferred from first usage, they're locked in:
 
 <Listing number="13-3" file-name="src/main.rs" caption="Type inference locks closure parameter types">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-03/src/main.rs:here}}
 ```
 
@@ -71,7 +71,7 @@ Closures automatically choose the minimal capture mode needed:
 **Immutable borrow:**
 <Listing number="13-4" file-name="src/main.rs" caption="Immutable reference capture">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-04/src/main.rs}}
 ```
 
@@ -80,7 +80,7 @@ Closures automatically choose the minimal capture mode needed:
 **Mutable borrow:**
 <Listing number="13-5" file-name="src/main.rs" caption="Mutable reference capture">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-05/src/main.rs}}
 ```
 
@@ -91,7 +91,7 @@ Use `move` to force ownership transfer, commonly needed for thread boundaries:
 
 <Listing number="13-6" file-name="src/main.rs" caption="Force ownership with `move`">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-06/src/main.rs}}
 ```
 
@@ -112,7 +112,7 @@ Closures implement one or more of these traits based on how they handle captured
 - **`Fn`**: Callable multiple times without mutation, safe for concurrent access.
 
 Example from `Option<T>`:
-```rust,ignore
+```rust,editable,ignore
 impl<T> Option<T> {
     pub fn unwrap_or_else<F>(self, f: F) -> T
     where
@@ -130,7 +130,7 @@ impl<T> Option<T> {
 
 <Listing number="13-7" file-name="src/main.rs" caption="Using `sort_by_key` with `FnMut`">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-07/src/main.rs}}
 ```
 
@@ -140,7 +140,7 @@ This won't compile because the closure moves `value` out, implementing only `FnO
 
 <Listing number="13-8" file-name="src/main.rs" caption="FnOnce closure incompatible with `sort_by_key`">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-08/src/main.rs}}
 ```
 
@@ -154,7 +154,7 @@ Correct approach using mutable reference:
 
 <Listing number="13-9" file-name="src/main.rs" caption="FnMut closure with mutable reference">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-09/src/main.rs}}
 ```
 

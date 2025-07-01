@@ -4,13 +4,13 @@ The `Deref` trait customizes the dereference operator (`*`) behavior, allowing s
 
 ### Basic Dereferencing
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-06/src/main.rs}}
 ```
 
 ### Using `Box<T>` Like a Reference
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-07/src/main.rs}}
 ```
 
@@ -18,19 +18,19 @@ The `Deref` trait customizes the dereference operator (`*`) behavior, allowing s
 
 ### Implementing Custom Smart Pointers
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-08/src/main.rs:here}}
 ```
 
 This `MyBox<T>` type won't work with the dereference operator without implementing `Deref`:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-09/src/main.rs:here}}
 ```
 
 ### Implementing the `Deref` Trait
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-10/src/main.rs:here}}
 ```
 
@@ -40,13 +40,13 @@ The `deref` method returns a reference to the inner data. When you write `*y`, R
 
 Deref coercion automatically converts references to types implementing `Deref` into references to other types. This enables seamless interaction between different smart pointer types.
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-11/src/main.rs:here}}
 ```
 
 Calling a function expecting `&str` with `&MyBox<String>`:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-12/src/main.rs:here}}
 ```
 
@@ -54,7 +54,7 @@ Rust automatically applies deref coercion: `&MyBox<String>` → `&String` → `&
 
 Without deref coercion, you'd need explicit conversions:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-13/src/main.rs:here}}
 ```
 

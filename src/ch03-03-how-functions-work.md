@@ -4,7 +4,7 @@ Functions in Rust use snake_case convention and require explicit type annotation
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-16-functions/src/main.rs}}
 ```
 
@@ -16,7 +16,7 @@ Unlike TypeScript, parameter types are mandatory:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-17-functions-with-parameters/src/main.rs}}
 ```
 
@@ -24,7 +24,7 @@ Multiple parameters:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-18-functions-with-multiple-parameters/src/main.rs}}
 ```
 
@@ -37,7 +37,7 @@ Critical distinction for Rust (unlike TypeScript where nearly everything is an e
 
 <Listing number="3-1" file-name="src/main.rs" caption="Statement example">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-01/src/main.rs}}
 ```
 
@@ -47,7 +47,7 @@ This won't compile (unlike JavaScript/TypeScript):
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-19-statements-vs-expressions/src/main.rs}}
 ```
 
@@ -55,7 +55,7 @@ Blocks are expressions:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-20-blocks-are-expressions/src/main.rs}}
 ```
 
@@ -67,7 +67,7 @@ Return type annotation required after `->`. Functions return the last expression
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-21-function-return-values/src/main.rs}}
 ```
 
@@ -75,7 +75,7 @@ Parameter and return example:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-22-function-parameter-and-return/src/main.rs}}
 ```
 
@@ -83,7 +83,7 @@ Parameter and return example:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-23-statements-dont-return-values/src/main.rs}}
 ```
 

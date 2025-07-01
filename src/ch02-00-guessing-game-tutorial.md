@@ -31,7 +31,7 @@ edition = "2024"
 
 Unlike Node.js's `readline` or `process.stdin`, Rust uses explicit imports and error handling:
 
-```rust
+```rust,editable
 use std::io;
 
 fn main() {
@@ -74,7 +74,7 @@ $ cargo build  # Downloads, compiles, and links dependencies
 
 ## Random Number Generation
 
-```rust
+```rust,editable
 use rand::Rng;
 use std::io;
 
@@ -98,7 +98,7 @@ fn main() {
 
 Rust's `match` is more powerful than TypeScript's `switch`:
 
-```rust
+```rust,editable
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
@@ -131,7 +131,7 @@ fn main() {
 
 ## Game Loop with Robust Error Handling
 
-```rust
+```rust,editable
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
@@ -171,7 +171,7 @@ fn main() {
 
 ## Final Implementation
 
-```rust
+```rust,editable
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;

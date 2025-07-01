@@ -26,7 +26,7 @@ backyard
 
 <Listing number="07-3" file-name="src/main.rs" caption="Example code in src/main.rs">
 
-```rust,noplayground,ignore
+```rust,editable,noplayground,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/quick-reference-example/src/main.rs}}
 ```
 
@@ -34,7 +34,7 @@ backyard
 
 <Listing number="07-4" file-name="src/garden.rs" caption="Example code in src/garden.rs">
 
-```rust,noplayground,ignore
+```rust,editable,noplayground,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/quick-reference-example/src/garden.rs}}
 ```
 
@@ -42,7 +42,7 @@ backyard
 
 <Listing number="07-5" file-name="src/garden/vegetables.rs" caption="Example code in src/garden/vegetables.rs">
 
-```rust,noplayground,ignore
+```rust,editable,noplayground,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/quick-reference-example/src/garden/vegetables.rs}}
 ```
 
@@ -54,7 +54,7 @@ Modules provide namespace organization and privacy control. Unlike JavaScript im
 
 <Listing number="7-1" file-name="src/lib.rs" caption="A `front_of_house` module containing other modules that then contain functions">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-01/src/lib.rs}}
 ```
 

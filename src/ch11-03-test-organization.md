@@ -10,7 +10,7 @@ Place unit tests in each file with the code they test, in a `tests` module annot
 
 The `#[cfg(test)]` annotation compiles and runs test code only with `cargo test`, not `cargo build`:
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-01/src/lib.rs}}
 ```
 
@@ -20,7 +20,7 @@ Rust allows testing private functions since tests are just Rust code in the same
 
 <Listing number="11-12" file-name="src/lib.rs" caption="Testing a private function">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-12/src/lib.rs}}
 ```
 
@@ -47,7 +47,7 @@ adder
 
 <Listing number="11-13" file-name="tests/integration_test.rs" caption="Integration test">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-13/tests/integration_test.rs}}
 ```
 
@@ -74,7 +74,7 @@ For shared helper functions, use subdirectories instead of top-level files:
 
 Use from integration tests:
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-13-fix-shared-test-code-problem/tests/integration_test.rs}}
 ```
 

@@ -6,7 +6,7 @@ Structs provide named fields for data grouping, offering better semantics than t
 
 <Listing number="5-1" file-name="src/main.rs" caption="A `User` struct definition">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-01/src/main.rs:here}}
 ```
 
@@ -16,7 +16,7 @@ Instantiation uses key-value pairs in any order:
 
 <Listing number="5-2" file-name="src/main.rs" caption="Creating an instance of the `User` struct">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-02/src/main.rs:here}}
 ```
 
@@ -26,7 +26,7 @@ Access and mutation require the entire instance to be mutable:
 
 <Listing number="5-3" file-name="src/main.rs" caption="Changing the value in the `email` field of a `User` instance">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-03/src/main.rs:here}}
 ```
 
@@ -36,7 +36,7 @@ Functions can return struct instances as the last expression:
 
 <Listing number="5-4" file-name="src/main.rs" caption="A `build_user` function that takes an email and username and returns a `User` instance">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-04/src/main.rs:here}}
 ```
 
@@ -48,7 +48,7 @@ When parameter names match field names, use shorthand syntax:
 
 <Listing number="5-5" file-name="src/main.rs" caption="A `build_user` function that uses field init shorthand because the `username` and `email` parameters have the same name as struct fields">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-05/src/main.rs:here}}
 ```
 
@@ -60,7 +60,7 @@ Create instances from existing ones with selective field updates:
 
 <Listing number="5-6" file-name="src/main.rs" caption="Creating a new `User` instance using all but one of the values from `user1`">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-06/src/main.rs:here}}
 ```
 
@@ -70,7 +70,7 @@ The `..` operator copies remaining fields:
 
 <Listing number="5-7" file-name="src/main.rs" caption="Using struct update syntax to set a new `email` value for a `User` instance but to use the rest of the values from `user1`">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-07/src/main.rs:here}}
 ```
 
@@ -84,7 +84,7 @@ Tuple structs provide struct semantics with positional fields:
 
 <Listing number="05-8" file-name="src/main.rs" caption="Example code in src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-01-tuple-structs/src/main.rs}}
 ```
 
@@ -98,7 +98,7 @@ Structs without fields are useful for trait implementations without data:
 
 <Listing number="05-8" file-name="src/main.rs" caption="Example code in src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-04-unit-like-structs/src/main.rs}}
 ```
 
@@ -112,7 +112,7 @@ Structs typically own their data using owned types like `String` rather than ref
 
 <!-- CAN'T EXTRACT SEE https://github.com/rust-lang/mdBook/issues/1127 -->
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 struct User {
     active: bool,
     username: &str,    // Error: missing lifetime specifier

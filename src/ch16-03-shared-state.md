@@ -8,7 +8,7 @@ A mutex (_mutual exclusion_) guards data with a locking mechanism, ensuring only
 
 <Listing number="16-12" file-name="src/main.rs" caption="Exploring the API of `Mutex<T>` in a single-threaded context for simplicity">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-12/src/main.rs}}
 ```
 
@@ -26,7 +26,7 @@ Attempting to share a mutex across threads fails without proper ownership handli
 
 <Listing number="16-13" file-name="src/main.rs" caption="Ten threads, each incrementing a counter guarded by a `Mutex<T>`">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-13/src/main.rs}}
 ```
 
@@ -44,7 +44,7 @@ Error: cannot move `counter` into multiple threads:
 
 <Listing number="16-14" file-name="src/main.rs" caption="Attempting to use `Rc<T>` to allow multiple threads to own the `Mutex<T>`">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-14/src/main.rs}}
 ```
 
@@ -64,7 +64,7 @@ Error: `Rc<T>` lacks `Send` trait for thread safety:
 
 <Listing number="16-15" file-name="src/main.rs" caption="Using an `Arc<T>` to wrap the `Mutex<T>` to be able to share ownership across multiple threads">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-15/src/main.rs}}
 ```
 

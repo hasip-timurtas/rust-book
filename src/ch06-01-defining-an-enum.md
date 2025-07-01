@@ -4,19 +4,19 @@ Enums model data that can be one of several distinct variants. Each variant can 
 
 ### Basic Syntax
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-01-defining-enums/src/main.rs:def}}
 ```
 
 Enum values are created using namespace syntax:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-01-defining-enums/src/main.rs:instance}}
 ```
 
 Both values have type `IpAddrKind`, enabling uniform function parameters:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-01-defining-enums/src/main.rs:fn}}
 ```
 
@@ -24,7 +24,7 @@ Both values have type `IpAddrKind`, enabling uniform function parameters:
 
 Variants can carry associated data directly:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-02-enum-with-data/src/main.rs:here}}
 ```
 
@@ -32,13 +32,13 @@ Variant names become constructor functions: `IpAddr::V4()` takes a `String` and 
 
 Each variant can have different data types:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-03-variants-with-different-data/src/main.rs:here}}
 ```
 
 The standard library's `IpAddr` uses structs within variants:
 
-```rust
+```rust,editable
 struct Ipv4Addr {
     // --snip--
 }
@@ -57,7 +57,7 @@ enum IpAddr {
 
 <Listing number="6-2" caption="A `Message` enum whose variants each store different amounts and types of values">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-02/src/main.rs:here}}
 ```
 
@@ -65,7 +65,7 @@ enum IpAddr {
 
 This enum replaces what would require multiple struct types:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-04-structs-similar-to-message-enum/src/main.rs:here}}
 ```
 
@@ -75,7 +75,7 @@ Enums enable functions accepting any variant as a single type parameter, unlike 
 
 Enums support methods via `impl` blocks:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-05-methods-on-enums/src/main.rs:here}}
 ```
 
@@ -83,7 +83,7 @@ Enums support methods via `impl` blocks:
 
 `Option<T>` encodes nullable values safely in the type system:
 
-```rust
+```rust,editable
 enum Option<T> {
     None,
     Some(T),
@@ -93,7 +93,7 @@ enum Option<T> {
 `Option<T>` is included in the prelude. Variants `Some` and `None` are directly accessible without the `Option::` prefix.
 
 Examples:
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-06-option-examples/src/main.rs:here}}
 ```
 
@@ -101,7 +101,7 @@ Examples:
 
 Unlike TypeScript's `null` and `undefined`, Rust prevents direct operations on `Option<T>` values:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-07-cant-use-option-directly/src/main.rs:here}}
 ```
 

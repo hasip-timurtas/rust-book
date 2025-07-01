@@ -15,7 +15,7 @@ Use `std::env::args` to access command line arguments:
 
 <Listing number="12-1" file-name="src/main.rs" caption="Collecting command line arguments">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-01/src/main.rs}}
 ```
 
@@ -33,7 +33,7 @@ Extract the required arguments into variables:
 
 <Listing number="12-2" file-name="src/main.rs" caption="Extracting query and file path arguments">
 
-```rust,should_panic,noplayground
+```rust,editable,should_panic,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-02/src/main.rs}}
 ```
 

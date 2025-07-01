@@ -4,13 +4,13 @@
 
 `if` is an expression in Rust, not just a statement:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-26-if-true/src/main.rs}}
 ```
 
 Conditions must be `bool` - no automatic type conversion:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/src/main.rs}}
 ```
 
@@ -21,13 +21,13 @@ Error:
 
 Explicit comparison required:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-29-if-not-equal-0/src/main.rs}}
 ```
 
 #### Multiple Conditions
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-30-else-if/src/main.rs}}
 ```
 
@@ -35,13 +35,13 @@ Explicit comparison required:
 
 Since `if` is an expression, it can assign values:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-02/src/main.rs}}
 ```
 
 All branches must return the same type:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-31-arms-must-return-same-type/src/main.rs}}
 ```
 
@@ -56,13 +56,13 @@ Error:
 
 Infinite loop until explicit `break`:
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-32-loop/src/main.rs}}
 ```
 
 Return values from loops:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-33-return-value-from-loop/src/main.rs}}
 ```
 
@@ -70,7 +70,7 @@ Return values from loops:
 
 Label loops for nested control:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-32-5-loop-labels/src/main.rs}}
 ```
 
@@ -83,7 +83,7 @@ Output:
 
 Conditional loops:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-03/src/main.rs}}
 ```
 
@@ -91,19 +91,19 @@ Conditional loops:
 
 Preferred for collection iteration. Compare `while` approach:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-04/src/main.rs}}
 ```
 
 With safer `for` loop:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-05/src/main.rs}}
 ```
 
 Using ranges:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-34-for-range/src/main.rs}}
 ```
 

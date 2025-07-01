@@ -90,7 +90,7 @@ that uses `match` as its name:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 fn match(needle: &str, haystack: &str) -> bool {
     haystack.contains(needle)
 }
@@ -112,7 +112,7 @@ identifier syntax, like this:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust
+```rust,editable
 fn r#match(needle: &str, haystack: &str) -> bool {
     haystack.contains(needle)
 }

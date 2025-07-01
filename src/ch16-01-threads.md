@@ -6,7 +6,7 @@ Rust uses a 1:1 threading model where each language thread maps to an OS thread.
 
 <Listing number="16-1" file-name="src/main.rs" caption="Creating a new thread to print one thing while the main thread prints something else">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-01/src/main.rs}}
 ```
 
@@ -23,7 +23,7 @@ Key behaviors:
 
 <Listing number="16-2" file-name="src/main.rs" caption="Saving a `JoinHandle<T>` from `thread::spawn` to guarantee the thread is run to completion">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-02/src/main.rs}}
 ```
 
@@ -37,7 +37,7 @@ To transfer ownership of variables from one thread to another, use `move` closur
 
 <Listing number="16-3" file-name="src/main.rs" caption="Attempting to use a vector created by the main thread in another thread">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-03/src/main.rs}}
 ```
 
@@ -53,7 +53,7 @@ The `move` keyword forces the closure to take ownership:
 
 <Listing number="16-5" file-name="src/main.rs" caption="Using the `move` keyword to force a closure to take ownership of the values it uses">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-05/src/main.rs}}
 ```
 

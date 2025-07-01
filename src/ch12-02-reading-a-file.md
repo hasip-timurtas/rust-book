@@ -12,7 +12,7 @@ Add file reading capability to complete the basic functionality:
 
 <Listing number="12-4" file-name="src/main.rs" caption="Reading file contents">
 
-```rust,should_panic,noplayground
+```rust,editable,should_panic,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-04/src/main.rs:here}}
 ```
 

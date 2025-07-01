@@ -16,13 +16,13 @@ Interior mutability allows mutating data through immutable references by deferri
 
 Testing scenario requiring mutation through immutable interface:
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-20/src/lib.rs}}
 ```
 
 Attempting to implement a mock that tracks sent messages:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-21/src/lib.rs:here}}
 ```
 
@@ -34,7 +34,7 @@ This fails because `send` takes `&self` but we need to mutate `sent_messages`:
 
 ### Solution with `RefCell<T>`
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-22/src/lib.rs:here}}
 ```
 
@@ -48,7 +48,7 @@ Both implement `Deref` for transparent access.
 
 `RefCell<T>` tracks active borrows at runtime. Violating borrowing rules causes panics:
 
-```rust,ignore,panics
+```rust,editable,ignore,panics
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-23/src/lib.rs:here}}
 ```
 
@@ -60,7 +60,7 @@ Both implement `Deref` for transparent access.
 
 Multiple ownership with mutability:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-24/src/main.rs}}
 ```
 

@@ -6,7 +6,7 @@ Methods are functions defined within a struct's context using `impl` blocks. The
 
 <Listing number="5-13" file-name="src/main.rs" caption="Defining an `area` method on the `Rectangle` struct">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-13/src/main.rs}}
 ```
 
@@ -26,7 +26,7 @@ Methods can have the same name as fields:
 
 <Listing number="05-5" file-name="src/main.rs" caption="Example code in src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-06-method-field-interaction/src/main.rs:here}}
 ```
 
@@ -41,7 +41,7 @@ This pattern enables getter methods for controlled field access, supporting publ
 
 Rust automatically handles referencing/dereferencing for method calls:
 
-```rust
+```rust,editable
 # #[derive(Debug,Copy,Clone)]
 # struct Point {
 #     x: f64,
@@ -68,7 +68,7 @@ This eliminates the need for manual `*` or `->` operators found in C/C++.
 
 <Listing number="5-14" file-name="src/main.rs" caption="Using the as-yet-unwritten `can_hold` method">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-14/src/main.rs}}
 ```
 
@@ -84,7 +84,7 @@ Implementation:
 
 <Listing number="5-15" file-name="src/main.rs" caption="Implementing the `can_hold` method on `Rectangle` that takes another `Rectangle` instance as a parameter">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-15/src/main.rs:here}}
 ```
 
@@ -98,7 +98,7 @@ Functions in `impl` blocks without `self` are associated functions (similar to s
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-03-associated-functions/src/main.rs:here}}
 ```
 
@@ -110,7 +110,7 @@ Structs can have multiple `impl` blocks:
 
 <Listing number="5-16" caption="Rewriting Listing 5-15 using multiple `impl` blocks">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-16/src/main.rs:here}}
 ```
 

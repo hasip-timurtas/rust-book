@@ -10,7 +10,7 @@
 
 <Listing number="6-3" caption="An enum and a `match` expression that has the variants of the enum as its patterns">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-03/src/main.rs:here}}
 ```
 
@@ -24,7 +24,7 @@
 
 For multi-line arm code, use curly braces:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-08-match-arm-multiple-lines/src/main.rs:here}}
 ```
 
@@ -34,7 +34,7 @@ Match arms can bind to data within enum variants:
 
 <Listing number="6-4" caption="A `Coin` enum in which the `Quarter` variant also holds a `UsState` value">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-04/src/main.rs:here}}
 ```
 
@@ -42,7 +42,7 @@ Match arms can bind to data within enum variants:
 
 Extract data using variable binding in patterns:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-09-variable-in-pattern/src/main.rs:here}}
 ```
 
@@ -54,7 +54,7 @@ Common pattern for safe null handling:
 
 <Listing number="6-5" caption="A function that uses a `match` expression on an `Option<i32>`">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-05/src/main.rs:here}}
 ```
 
@@ -69,7 +69,7 @@ Common pattern for safe null handling:
 
 Match expressions must handle all possible variants:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-10-non-exhaustive-match/src/main.rs:here}}
 ```
 
@@ -84,19 +84,19 @@ Exhaustiveness prevents runtime errors from unhandled cases, especially critical
 
 Handle specific values with catch-all for remaining cases:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-15-binding-catchall/src/main.rs:here}}
 ```
 
 Use `_` placeholder when catch-all value isn't needed:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-16-underscore-catchall/src/main.rs:here}}
 ```
 
 Use unit value `()` for no-op catch-all:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-17-underscore-unit/src/main.rs:here}}
 ```
 

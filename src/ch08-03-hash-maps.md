@@ -4,7 +4,7 @@
 
 ### Creating Hash Maps
 
-```rust
+```rust,editable
 use std::collections::HashMap;
 
 let mut scores = HashMap::new();
@@ -16,7 +16,7 @@ Hash maps are not included in the prelude, require explicit `use`. No built-in m
 
 ### Accessing Values
 
-```rust
+```rust,editable
 use std::collections::HashMap;
 
 let mut scores = HashMap::new();
@@ -33,7 +33,7 @@ for (key, value) in &scores {
 
 ### Ownership Rules
 
-```rust
+```rust,editable
 use std::collections::HashMap;
 
 let field_name = String::from("Favorite color");
@@ -50,18 +50,18 @@ map.insert(field_name, field_value);
 ### Updating Hash Maps
 
 **Overwriting values:**
-```rust
+```rust,editable
 scores.insert(String::from("Blue"), 25); // Replaces existing value
 ```
 
 **Insert only if key doesn't exist:**
-```rust
+```rust,editable
 scores.entry(String::from("Yellow")).or_insert(50);
 scores.entry(String::from("Blue")).or_insert(50); // Won't insert, Blue exists
 ```
 
 **Update based on old value:**
-```rust
+```rust,editable
 let text = "hello world wonderful world";
 let mut map = HashMap::new();
 
@@ -81,7 +81,7 @@ The `entry` method returns an `Entry` enum that represents a value that might or
 
 ### Common Patterns
 
-```rust
+```rust,editable
 // Check if key exists
 if scores.contains_key("Blue") { /* ... */ }
 

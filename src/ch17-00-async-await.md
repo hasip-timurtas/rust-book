@@ -29,7 +29,7 @@ In async Rust, concurrency is primary. The runtime may use parallelism underneat
 
 Traditional IO operations block execution until completion. Async operations yield control to the runtime when waiting, allowing other tasks to progress.
 
-```rust,ignore
+```rust,editable,ignore
 // Blocking - thread stops here
 let data = std::fs::read("file.txt")?;
 
@@ -39,7 +39,7 @@ let data = tokio::fs::read("file.txt").await?;
 
 Async enables writing sequential-looking code that's actually concurrent:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 let data = fetch_data_from(url).await;
 println!("{data}");
 ```

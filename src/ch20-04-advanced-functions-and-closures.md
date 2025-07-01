@@ -4,7 +4,7 @@
 
 **Function pointers** (`fn`) are different from closure traits (`Fn`, `FnMut`, `FnOnce`):
 
-```rust
+```rust,editable
 fn add_one(x: i32) -> i32 { x + 1 }
 
 fn do_twice(f: fn(i32) -> i32, arg: i32) -> i32 {
@@ -22,13 +22,13 @@ let answer = do_twice(add_one, 5);  // Function pointer
 ### Practical Examples
 
 **Map with function vs closure:**
-```rust
+```rust,editable
 let list = vec![1, 2, 3];
 let list2: Vec<String> = list.iter().map(ToString::to_string).collect();
 ```
 
 **Enum constructors as function pointers:**
-```rust
+```rust,editable
 enum Status { Value(u32) }
 let list: Vec<Status> = (0u32..20).map(Status::Value).collect();
 ```
@@ -36,14 +36,14 @@ let list: Vec<Status> = (0u32..20).map(Status::Value).collect();
 ### Returning Closures
 
 **Simple case** with `impl Trait`:
-```rust
+```rust,editable
 fn returns_closure() -> impl Fn(i32) -> i32 {
     |x| x + 1
 }
 ```
 
 **Multiple closures** require trait objects (each closure has unique type):
-```rust
+```rust,editable
 fn returns_closure(condition: bool) -> Box<dyn Fn(i32) -> i32> {
     if condition {
         Box::new(|x| x + 1)
@@ -63,7 +63,7 @@ const funcs = [add, multiply];  // Same type
 ```
 
 **Rust**: Functions and closures have distinct types based on captures:
-```rust
+```rust,editable
 fn add(x: i32) -> i32 { x + 1 }
 let multiplier = 2;
 let multiply = |x| x * multiplier;  // Different type due to capture

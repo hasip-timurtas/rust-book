@@ -8,7 +8,7 @@ Channels provide a transmitter/receiver pair for unidirectional data flow:
 
 <Listing number="16-6" file-name="src/main.rs" caption="Creating a channel and assigning the two halves to `tx` and `rx`">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-06/src/main.rs}}
 ```
 
@@ -20,7 +20,7 @@ Channels provide a transmitter/receiver pair for unidirectional data flow:
 
 <Listing number="16-7" file-name="src/main.rs" caption='Moving `tx` to a spawned thread and sending `"hi"`'>
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-07/src/main.rs}}
 ```
 
@@ -30,7 +30,7 @@ The `send` method returns `Result<(), SendError<T>>`. It fails when the receiver
 
 <Listing number="16-8" file-name="src/main.rs" caption='Receiving the value `"hi"` in the main thread and printing it'>
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-08/src/main.rs}}
 ```
 
@@ -46,7 +46,7 @@ Channels transfer ownership of sent values, preventing use-after-send errors:
 
 <Listing number="16-9" file-name="src/main.rs" caption="Attempting to use `val` after we've sent it down the channel">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-09/src/main.rs}}
 ```
 
@@ -64,7 +64,7 @@ The `send` operation moves ownership to the receiver, preventing data races.
 
 <Listing number="16-10" file-name="src/main.rs" caption="Sending multiple messages and pausing between each one">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-10/src/main.rs}}
 ```
 
@@ -78,7 +78,7 @@ Clone the transmitter to create multiple senders:
 
 <Listing number="16-11" file-name="src/main.rs" caption="Sending multiple messages from multiple producers">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-11/src/main.rs:here}}
 ```
 

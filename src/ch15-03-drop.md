@@ -4,7 +4,7 @@ The `Drop` trait customizes cleanup behavior when a value goes out of scope. It'
 
 ### Implementing `Drop`
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-14/src/main.rs}}
 ```
 
@@ -21,7 +21,7 @@ Variables are dropped in reverse order of creation (`d` before `c`).
 
 You cannot call the `Drop` trait's `drop` method directly:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-15/src/main.rs:here}}
 ```
 
@@ -31,7 +31,7 @@ You cannot call the `Drop` trait's `drop` method directly:
 
 Use `std::mem::drop` for early cleanup:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-16/src/main.rs:here}}
 ```
 

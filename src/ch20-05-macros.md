@@ -11,7 +11,7 @@ Compile-time metaprogramming through declarative and procedural macros.
 
 Pattern match on code structure:
 
-```rust
+```rust,editable
 macro_rules! vec {
     ( $( $x:expr ),* ) => {
         {
@@ -36,7 +36,7 @@ Transform `TokenStream` → `TokenStream`. Three types:
 
 #### 1. Custom `derive` Macros
 
-```rust
+```rust,editable
 #[derive(HelloMacro)]
 struct Pancakes;
 
@@ -46,7 +46,7 @@ fn main() {
 ```
 
 **Implementation**:
-```rust
+```rust,editable
 #[proc_macro_derive(HelloMacro)]
 pub fn hello_macro_derive(input: TokenStream) -> TokenStream {
     let ast = syn::parse(input).unwrap();
@@ -56,25 +56,25 @@ pub fn hello_macro_derive(input: TokenStream) -> TokenStream {
 
 #### 2. Attribute-like Macros
 
-```rust
+```rust,editable
 #[route(GET, "/")]
 fn index() {}
 ```
 
 **Signature**:
-```rust
+```rust,editable
 #[proc_macro_attribute]
 pub fn route(attr: TokenStream, item: TokenStream) -> TokenStream
 ```
 
 #### 3. Function-like Macros
 
-```rust
+```rust,editable
 let sql = sql!(SELECT * FROM posts WHERE id=1);
 ```
 
 **Signature**:
-```rust
+```rust,editable
 #[proc_macro]
 pub fn sql(input: TokenStream) -> TokenStream
 ```

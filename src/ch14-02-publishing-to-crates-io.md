@@ -16,7 +16,7 @@ Use `///` for API documentation that generates HTML:
 
 <Listing number="14-1" file-name="src/lib.rs" caption="Documentation comment example">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch14-more-about-cargo/listing-14-01/src/lib.rs}}
 ```
 
@@ -47,7 +47,7 @@ Use `//!` for crate/module-level documentation:
 
 <Listing number="14-2" file-name="src/lib.rs" caption="Crate-level documentation">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch14-more-about-cargo/listing-14-02/src/lib.rs:here}}
 ```
 
@@ -59,28 +59,28 @@ Re-export items to create a clean public API regardless of internal structure:
 
 <Listing number="14-3" file-name="src/lib.rs" caption="Internal module organization">
 
-```rust,noplayground,test_harness
+```rust,editable,noplayground,test_harness
 {{#rustdoc_include ../listings/ch14-more-about-cargo/listing-14-03/src/lib.rs:here}}
 ```
 
 </Listing>
 
 Without re-exports, users must write:
-```rust,ignore
+```rust,editable,ignore
 use art::kinds::PrimaryColor;
 use art::utils::mix;
 ```
 
 <Listing number="14-5" file-name="src/lib.rs" caption="Re-exporting for clean API">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch14-more-about-cargo/listing-14-05/src/lib.rs:here}}
 ```
 
 </Listing>
 
 Now users can write:
-```rust,ignore
+```rust,editable,ignore
 use art::{PrimaryColor, mix};
 ```
 

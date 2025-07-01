@@ -11,7 +11,7 @@ The blog post workflow requires:
 
 <Listing number="18-11" file-name="src/main.rs" caption="Usage API for the blog post state pattern">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch18-oop/listing-18-11/src/main.rs:all}}
 ```
 
@@ -21,7 +21,7 @@ The blog post workflow requires:
 
 <Listing number="18-12" file-name="src/lib.rs" caption="Definition of `Post` struct, `State` trait, and `Draft` struct">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-12/src/lib.rs}}
 ```
 
@@ -29,7 +29,7 @@ The blog post workflow requires:
 
 <Listing number="18-13" file-name="src/lib.rs" caption="Implementing the `add_text` method">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-13/src/lib.rs:here}}
 ```
 
@@ -37,7 +37,7 @@ The blog post workflow requires:
 
 <Listing number="18-14" file-name="src/lib.rs" caption="Placeholder `content` method returns empty string for drafts">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-14/src/lib.rs:here}}
 ```
 
@@ -47,7 +47,7 @@ The blog post workflow requires:
 
 <Listing number="18-15" file-name="src/lib.rs" caption="Implementing `request_review` methods">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-15/src/lib.rs:here}}
 ```
 
@@ -55,7 +55,7 @@ The blog post workflow requires:
 
 <Listing number="18-16" file-name="src/lib.rs" caption="Implementing the `approve` method">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-16/src/lib.rs:here}}
 ```
 
@@ -63,7 +63,7 @@ The blog post workflow requires:
 
 <Listing number="18-17" file-name="src/lib.rs" caption="Updating `content` method to delegate to state">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch18-oop/listing-18-17/src/lib.rs:here}}
 ```
 
@@ -71,7 +71,7 @@ The blog post workflow requires:
 
 <Listing number="18-18" file-name="src/lib.rs" caption="Adding the `content` method to the `State` trait">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-18/src/lib.rs:here}}
 ```
 
@@ -96,7 +96,7 @@ Rust's type system can encode states as types, making invalid states impossible:
 
 <Listing number="18-19" file-name="src/lib.rs" caption="Type-based approach with separate structs">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-19/src/lib.rs}}
 ```
 
@@ -104,7 +104,7 @@ Rust's type system can encode states as types, making invalid states impossible:
 
 <Listing number="18-20" file-name="src/lib.rs" caption="Implementing transitions as type transformations">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-20/src/lib.rs:here}}
 ```
 
@@ -112,7 +112,7 @@ Rust's type system can encode states as types, making invalid states impossible:
 
 <Listing number="18-21" file-name="src/main.rs" caption="Updated main function using type transformations">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch18-oop/listing-18-21/src/main.rs}}
 ```
 

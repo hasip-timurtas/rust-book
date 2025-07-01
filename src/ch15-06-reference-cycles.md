@@ -4,13 +4,13 @@
 
 ### Creating a Reference Cycle
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-25/src/main.rs}}
 ```
 
 Creating circular references:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-26/src/main.rs:here}}
 ```
 
@@ -31,27 +31,27 @@ Both `a` and `b` have reference count 2. When they go out of scope, counts drop 
 
 ### Tree Data Structure Example
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-27/src/main.rs:here}}
 ```
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-27/src/main.rs:there}}
 ```
 
 Adding parent references with `Weak<T>`:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-28/src/main.rs:here}}
 ```
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-28/src/main.rs:there}}
 ```
 
 ### Reference Count Monitoring
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-29/src/main.rs:here}}
 ```
 

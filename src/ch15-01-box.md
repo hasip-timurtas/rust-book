@@ -8,7 +8,7 @@
 
 ### Basic Usage
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-01/src/main.rs}}
 ```
 
@@ -18,7 +18,7 @@
 
 Recursive types require indirection since Rust needs to know type sizes at compile time.
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-02/src/main.rs:here}}
 ```
 
@@ -34,7 +34,7 @@ Non-recursive enums use the size of their largest variant. Recursive types creat
 
 #### Solution with `Box<T>`
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-05/src/main.rs}}
 ```
 

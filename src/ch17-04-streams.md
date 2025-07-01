@@ -11,7 +11,7 @@ Basic stream from iterator:
 
 <Listing number="17-30" caption="Creating a stream from an iterator (doesn't compile)" file-name="src/main.rs">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-30/src/main.rs:stream}}
 ```
 
@@ -21,7 +21,7 @@ Basic stream from iterator:
 
 <Listing number="17-31" caption="Importing StreamExt for stream methods" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-31/src/main.rs:all}}
 ```
 
@@ -33,7 +33,7 @@ Streams support familiar iterator patterns:
 
 <Listing number="17-32" caption="Filtering streams with StreamExt methods" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-32/src/main.rs:all}}
 ```
 
@@ -45,7 +45,7 @@ Streams excel at processing real-time data like WebSocket messages or event stre
 
 <Listing number="17-33" caption="Message stream with ReceiverStream" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-33/src/main.rs:all}}
 ```
 
@@ -59,7 +59,7 @@ Apply timeouts to individual stream items:
 
 <Listing number="17-34" caption="Stream timeouts with StreamExt::timeout" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-34/src/main.rs:timeout}}
 ```
 
@@ -69,7 +69,7 @@ Add delays to test timeout behavior:
 
 <Listing number="17-35" caption="Variable delays in message stream" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-35/src/main.rs:messages}}
 ```
 
@@ -83,7 +83,7 @@ Create periodic streams for regular events:
 
 <Listing number="17-36" caption="Creating a periodic interval stream" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-36/src/main.rs:intervals}}
 ```
 
@@ -95,7 +95,7 @@ Combine multiple streams into one:
 
 <Listing number="17-37" caption="Attempting to merge streams (doesn't compile)" file-name="src/main.rs">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-37/src/main.rs:main}}
 ```
 
@@ -105,7 +105,7 @@ Combine multiple streams into one:
 
 <Listing number="17-38" caption="Type alignment for stream merging" file-name="src/main.rs">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-38/src/main.rs:main}}
 ```
 
@@ -117,7 +117,7 @@ Control stream throughput with `throttle` and limit with `take`:
 
 <Listing number="17-39" caption="Throttling and limiting merged streams" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-39/src/main.rs:throttle}}
 ```
 
@@ -133,7 +133,7 @@ Handle stream errors gracefully:
 
 <Listing number="17-40" caption="Proper error handling in streams">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-40/src/main.rs:errors}}
 ```
 

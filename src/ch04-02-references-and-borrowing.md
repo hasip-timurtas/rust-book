@@ -4,7 +4,7 @@ References allow using values without taking ownership. A reference is guarantee
 
 <Listing number="4-5" file-name="src/main.rs" caption="A function that takes a reference as a parameter">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-07-reference/src/main.rs:all}}
 ```
 
@@ -12,7 +12,7 @@ References allow using values without taking ownership. A reference is guarantee
 
 The `&` syntax creates a reference. `&s1` refers to `s1` without owning it. When the reference goes out of scope, the value isn't dropped because the reference doesn't own it.
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-08-reference-with-annotations/src/main.rs:here}}
 ```
 
@@ -20,7 +20,7 @@ Creating a reference is called _borrowing_. References are immutable by default:
 
 <Listing number="4-6" file-name="src/main.rs" caption="Attempting to modify a borrowed value">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-06/src/main.rs}}
 ```
 
@@ -32,7 +32,7 @@ Use `&mut` for mutable references:
 
 <Listing number="4-7" file-name="src/main.rs" caption="Using a mutable reference to change a value">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-09-fixes-listing-04-06/src/main.rs}}
 ```
 
@@ -46,7 +46,7 @@ This prevents data races at compile time:
 
 <Listing number="4-8" file-name="src/main.rs" caption="Attempting to create two mutable references">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-10-multiple-mut-not-allowed/src/main.rs:here}}
 ```
 
@@ -54,19 +54,19 @@ This prevents data races at compile time:
 
 Multiple mutable references are allowed in separate scopes:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-11-muts-in-separate-scopes/src/main.rs:here}}
 ```
 
 Cannot combine mutable and immutable references:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-12-immutable-and-mutable-not-allowed/src/main.rs:here}}
 ```
 
 Reference scopes end at their last usage, not at the end of the block:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-13-reference-scope-ends/src/main.rs:here}}
 ```
 
@@ -76,7 +76,7 @@ Rust prevents dangling references through compile-time checks:
 
 <Listing number="4-9" file-name="src/main.rs" caption="Attempting to create a dangling reference">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-14-dangling-reference/src/main.rs}}
 ```
 
@@ -86,7 +86,7 @@ Error: function returns a borrowed value with no value to borrow from.
 
 Solution—return the value directly:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-16-no-dangle/src/main.rs:here}}
 ```
 

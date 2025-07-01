@@ -22,7 +22,7 @@ Many patterns work with both models:
 
 <Listing number="17-41" caption="Thread-based implementation" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-41/src/main.rs:threads}}
 ```
 
@@ -75,7 +75,7 @@ Combine both approaches for optimal performance:
 
 <Listing number="17-42" caption="Mixing threads and async" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-42/src/main.rs:all}}
 ```
 
@@ -125,7 +125,7 @@ Tasks can migrate between threads for load balancing, combining the benefits of 
 ### Cancellation and Cleanup
 
 **Threads**: Limited cancellation support, manual cleanup
-```rust
+```rust,editable
 // Thread cancellation is tricky
 let handle = thread::spawn(|| {
     // No built-in cancellation mechanism
@@ -135,7 +135,7 @@ let handle = thread::spawn(|| {
 ```
 
 **Async**: Built-in cancellation when futures are dropped
-```rust
+```rust,editable
 // Automatic cleanup when dropped
 let task = spawn_task(async {
     some_operation().await; // Cancelled if task is dropped

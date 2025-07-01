@@ -45,7 +45,7 @@ consider this code:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust
+```rust,editable
 fn main() {
     let mut x = 42;
     println!("{x}");
@@ -85,7 +85,7 @@ code:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust
+```rust,editable
 fn main() {
     let x = 42;
     println!("{x}");
@@ -114,7 +114,7 @@ mathematical constant, such as pi, as this program does:
 
 <Listing number="D-1" file-name="src/main.rs" caption="A program that uses a hard-coded value of pi">
 
-```rust
+```rust,editable
 fn main() {
     let x = 3.1415;
     let r = 8.0;
@@ -145,7 +145,7 @@ following code doesn’t result in any errors or warnings from Clippy:
 
 <Listing number="D-2" file-name="src/main.rs" caption="A program that uses the PI constant">
 
-```rust
+```rust,editable
 fn main() {
     let x = std::f64::consts::PI;
     let r = 8.0;

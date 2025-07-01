@@ -2,7 +2,7 @@
 
 ### TCP Connection Handling
 
-```rust,no_run
+```rust,editable,no_run
 use std::net::TcpListener;
 
 let listener = TcpListener::bind("127.0.0.1:7878")?;
@@ -30,7 +30,7 @@ User-Agent: Mozilla/5.0...
 
 ### Basic Response
 
-```rust,no_run
+```rust,editable,no_run
 fn handle_connection(mut stream: TcpStream) {
     let mut buffer = [0; 1024];
     stream.read(&mut buffer)?;
@@ -43,7 +43,7 @@ fn handle_connection(mut stream: TcpStream) {
 
 ### Serving Files
 
-```rust,no_run
+```rust,editable,no_run
 fn handle_connection(mut stream: TcpStream) {
     let mut buffer = [0; 1024];
     stream.read(&mut buffer)?;
@@ -70,7 +70,7 @@ fn handle_connection(mut stream: TcpStream) {
 
 ### Performance Limitation
 
-```rust,no_run
+```rust,editable,no_run
 // Simulate slow endpoint
 if buffer.starts_with(b"GET /sleep HTTP/1.1\r\n") {
     thread::sleep(Duration::from_secs(5));

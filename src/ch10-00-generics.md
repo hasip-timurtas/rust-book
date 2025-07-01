@@ -10,7 +10,7 @@ Before exploring generics, let's examine the pattern of extracting common functi
 
 <Listing number="10-1" file-name="src/main.rs" caption="Finding the largest number in a list of numbers">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-01/src/main.rs:here}}
 ```
 
@@ -20,7 +20,7 @@ To handle multiple lists without code duplication, extract the logic into a func
 
 <Listing number="10-3" file-name="src/main.rs" caption="Abstracted code to find the largest number in two lists">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-03/src/main.rs:here}}
 ```
 

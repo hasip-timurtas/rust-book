@@ -11,7 +11,7 @@
 
 ### Examples and Prototyping
 
-```rust
+```rust,editable
 // Acceptable in examples and prototypes
 let config: Config = std::env::args().collect().parse().unwrap();
 let file = File::open("config.toml").expect("config file must exist");
@@ -21,7 +21,7 @@ Use `expect()` over `unwrap()` to provide context for debugging.
 
 ### When You Know More Than the Compiler
 
-```rust
+```rust,editable
 use std::net::IpAddr;
 
 let home: IpAddr = "127.0.0.1"
@@ -34,7 +34,7 @@ The string is hardcoded and valid, but the compiler can't guarantee this.
 ### Guidelines for Library Design
 
 **Panic for programming errors:**
-```rust
+```rust,editable
 pub fn get_element(slice: &[i32], index: usize) -> i32 {
     if index >= slice.len() {
         panic!("Index {} out of bounds for slice of length {}", index, slice.len());
@@ -44,7 +44,7 @@ pub fn get_element(slice: &[i32], index: usize) -> i32 {
 ```
 
 **Return Result for expected failures:**
-```rust
+```rust,editable
 pub fn parse_config(data: &str) -> Result<Config, ConfigError> {
     // Handle malformed data gracefully
 }
@@ -58,7 +58,7 @@ pub fn fetch_url(url: &str) -> Result<Response, NetworkError> {
 
 Create custom types to encode invariants:
 
-```rust
+```rust,editable
 pub struct Guess {
     value: i32,
 }
@@ -97,7 +97,7 @@ fn process_guess(guess: Guess) {
 ### Modern Error Handling Patterns
 
 **Layered error handling:**
-```rust
+```rust,editable
 // Low-level: specific errors
 fn read_config_file() -> Result<String, io::Error> { /* ... */ }
 
@@ -113,7 +113,7 @@ fn initialize() -> Result<App, Box<dyn Error>> {
 ```
 
 **Error context chaining:**
-```rust
+```rust,editable
 use anyhow::{Context, Result};
 
 fn load_settings() -> Result<Settings> {

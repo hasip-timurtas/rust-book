@@ -17,7 +17,7 @@ Ownership is Rust's memory management system with compile-time rules that preven
 
 ### Variable Scope
 
-```rust
+```rust,editable
 let s = "hello";
 ```
 
@@ -25,7 +25,7 @@ String literals are immutable and stack-allocated. The variable `s` is valid fro
 
 <Listing number="4-1" caption="A variable and the scope in which it is valid">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-01/src/main.rs:here}}
 ```
 
@@ -35,13 +35,13 @@ String literals are immutable and stack-allocated. The variable `s` is valid fro
 
 `String` manages heap-allocated, mutable text data:
 
-```rust
+```rust,editable
 let s = String::from("hello");
 ```
 
 Unlike string literals, `String` can be mutated and has dynamic size:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-01-can-mutate-string/src/main.rs:here}}
 ```
 
@@ -49,7 +49,7 @@ Unlike string literals, `String` can be mutated and has dynamic size:
 
 `String` requires heap allocation for dynamic content. Rust automatically calls `drop` when the owner goes out of scope—similar to RAII in C++.
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-02-string-scope/src/main.rs:here}}
 ```
 
@@ -59,7 +59,7 @@ Simple stack values are copied:
 
 <Listing number="4-2" caption="Assigning the integer value of variable `x` to `y`">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-02/src/main.rs:here}}
 ```
 
@@ -67,13 +67,13 @@ Simple stack values are copied:
 
 Heap-allocated values are moved:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-03-string-move/src/main.rs:here}}
 ```
 
 `String` contains three parts on the stack: pointer, length, capacity. Assignment copies these metadata but not heap data. Rust invalidates the original variable to prevent double-free errors.
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-04-cant-use-after-move/src/main.rs:here}}
 ```
 
@@ -83,7 +83,7 @@ Error: value used after move. This prevents the double-free memory safety issue.
 
 Assigning a new value immediately drops the previous value:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-04b-replacement-drop/src/main.rs:here}}
 ```
 
@@ -91,7 +91,7 @@ Assigning a new value immediately drops the previous value:
 
 For explicit deep copying:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-05-clone/src/main.rs:here}}
 ```
 
@@ -101,7 +101,7 @@ For explicit deep copying:
 
 Types implementing `Copy` trait are duplicated instead of moved:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-06-copy/src/main.rs:here}}
 ```
 
@@ -120,7 +120,7 @@ Function calls behave like assignment—values are moved or copied:
 
 <Listing number="4-3" file-name="src/main.rs" caption="Functions with ownership and scope annotated">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-03/src/main.rs}}
 ```
 
@@ -132,7 +132,7 @@ Functions can transfer ownership via return values:
 
 <Listing number="4-4" file-name="src/main.rs" caption="Transferring ownership of return values">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-04/src/main.rs}}
 ```
 
@@ -142,7 +142,7 @@ Returning ownership for every function parameter is verbose. Rust provides refer
 
 <Listing number="4-5" file-name="src/main.rs" caption="Returning ownership of parameters">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-05/src/main.rs}}
 ```
 

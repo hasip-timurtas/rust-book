@@ -17,7 +17,7 @@ The error appears in `output.txt` instead of the terminal, making debugging diff
 
 <Listing number="12-24" file-name="src/main.rs" caption="Using `eprintln!` for error output">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-24/src/main.rs:here}}
 ```
 

@@ -4,7 +4,7 @@
 
 ### Creating Vectors
 
-```rust
+```rust,editable
 // Empty vector with type annotation
 let v: Vec<i32> = Vec::new();
 
@@ -14,7 +14,7 @@ let v = vec![1, 2, 3];
 
 ### Updating Vectors
 
-```rust
+```rust,editable
 let mut v = Vec::new();
 v.push(5);
 v.push(6);
@@ -27,7 +27,7 @@ The `mut` keyword is required for modification. Rust infers the type from the da
 
 Two approaches for accessing elements:
 
-```rust
+```rust,editable
 let v = vec![1, 2, 3, 4, 5];
 
 // Index syntax - panics on invalid index
@@ -41,7 +41,7 @@ Use indexing when you want the program to crash on invalid access, use `get()` w
 
 ### Borrowing Rules
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 let mut v = vec![1, 2, 3, 4, 5];
 let first = &v[0];
 v.push(6); // Error: cannot borrow as mutable
@@ -52,7 +52,7 @@ Adding elements may require reallocation, invalidating existing references. The 
 
 ### Iteration
 
-```rust
+```rust,editable
 let v = vec![100, 32, 57];
 for i in &v {
     println!("{i}");
@@ -69,7 +69,7 @@ for i in &mut v {
 
 Vectors can only store one type, but enums allow storing variants of different types:
 
-```rust
+```rust,editable
 enum SpreadsheetCell {
     Int(i32),
     Float(f64),
@@ -89,7 +89,7 @@ For truly dynamic types unknown at compile time, use trait objects (covered in C
 
 Vectors are automatically freed when they go out of scope, along with their contents. The borrow checker ensures references remain valid.
 
-```rust
+```rust,editable
 {
     let v = vec![1, 2, 3, 4];
     // v is valid here

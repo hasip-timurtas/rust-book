@@ -29,7 +29,7 @@ Patterns are either **irrefutable** (always match) or **refutable** (can fail to
 
 <Listing number="19-8" caption="Attempting to use a refutable pattern with `let`">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-08/src/main.rs:here}}
 ```
 
@@ -44,7 +44,7 @@ Error:
 
 <Listing number="19-9" caption="Using `let...else` and a block with refutable patterns instead of `let`">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-09/src/main.rs:here}}
 ```
 
@@ -54,7 +54,7 @@ Error:
 
 <Listing number="19-10" caption="Attempting to use an irrefutable pattern with `if let`">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-10/src/main.rs:here}}
 ```
 

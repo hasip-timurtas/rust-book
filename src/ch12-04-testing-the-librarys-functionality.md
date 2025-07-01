@@ -6,7 +6,7 @@ With logic separated into lib.rs, we can implement the search functionality usin
 
 <Listing number="12-15" file-name="src/lib.rs" caption="Creating test for the search function">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-15/src/lib.rs:here}}
 ```
 
@@ -16,7 +16,7 @@ With logic separated into lib.rs, we can implement the search functionality usin
 
 <Listing number="12-16" file-name="src/lib.rs" caption="Minimal implementation to avoid panic">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-16/src/lib.rs:here}}
 ```
 
@@ -32,7 +32,7 @@ The function signature requires explicit lifetime annotation because the returne
 
 <Listing number="12-17" file-name="src/lib.rs" caption="Line-by-line iteration">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-17/src/lib.rs:here}}
 ```
 
@@ -42,7 +42,7 @@ The function signature requires explicit lifetime annotation because the returne
 
 <Listing number="12-18" file-name="src/lib.rs" caption="Adding contains check">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-18/src/lib.rs:here}}
 ```
 
@@ -52,7 +52,7 @@ The function signature requires explicit lifetime annotation because the returne
 
 <Listing number="12-19" file-name="src/lib.rs" caption="Complete implementation">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-19/src/lib.rs:here}}
 ```
 

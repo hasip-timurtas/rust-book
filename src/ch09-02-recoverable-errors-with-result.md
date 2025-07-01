@@ -2,7 +2,7 @@
 
 The `Result<T, E>` enum handles recoverable errors:
 
-```rust
+```rust,editable
 enum Result<T, E> {
     Ok(T),
     Err(E),
@@ -11,7 +11,7 @@ enum Result<T, E> {
 
 ### Basic Usage
 
-```rust
+```rust,editable
 use std::fs::File;
 
 fn main() {
@@ -26,7 +26,7 @@ fn main() {
 
 ### Handling Different Error Types
 
-```rust,ignore
+```rust,editable,ignore
 use std::fs::File;
 use std::io::ErrorKind;
 
@@ -43,7 +43,7 @@ let greeting_file = File::open("hello.txt").unwrap_or_else(|error| {
 
 ### Shortcuts: `unwrap` and `expect`
 
-```rust
+```rust,editable
 // unwrap - panic with default message on error
 let f = File::open("hello.txt").unwrap();
 
@@ -57,7 +57,7 @@ Use `expect` over `unwrap` in production code for better debugging.
 ### Error Propagation
 
 Manual propagation:
-```rust
+```rust,editable
 fn read_username_from_file() -> Result<String, io::Error> {
     let username_file_result = File::open("hello.txt");
     
@@ -79,7 +79,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 
 The `?` operator simplifies error propagation:
 
-```rust
+```rust,editable
 fn read_username_from_file() -> Result<String, io::Error> {
     let mut username_file = File::open("hello.txt")?;
     let mut username = String::new();
@@ -108,14 +108,14 @@ The `?` operator:
 
 `?` can only be used in functions returning compatible types:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 fn main() {
     let greeting_file = File::open("hello.txt")?; // Error: main returns ()
 }
 ```
 
 Fix by changing return type:
-```rust,ignore
+```rust,editable,ignore
 use std::error::Error;
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -126,7 +126,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
 ### Using `?` with `Option`
 
-```rust
+```rust,editable
 fn last_char_of_first_line(text: &str) -> Option<char> {
     text.lines().next()?.chars().last()
 }
@@ -135,7 +135,7 @@ fn last_char_of_first_line(text: &str) -> Option<char> {
 ### Common Patterns
 
 **Convert between Result and Option:**
-```rust
+```rust,editable
 // Result to Option
 let opt: Option<String> = File::open("hello.txt").ok();
 
@@ -144,7 +144,7 @@ let result: Result<String, &str> = some_option.ok_or("value was None");
 ```
 
 **Chaining operations:**
-```rust
+```rust,editable
 let processed = input
     .parse::<i32>()?
     .checked_mul(2)
@@ -152,7 +152,7 @@ let processed = input
 ```
 
 **Early returns in main:**
-```rust
+```rust,editable
 fn main() -> Result<(), Box<dyn Error>> {
     let config = load_config()?;
     let data = fetch_data(&config)?;

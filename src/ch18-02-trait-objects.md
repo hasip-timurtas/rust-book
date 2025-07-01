@@ -8,7 +8,7 @@ Define a trait for common behavior:
 
 <Listing number="18-3" file-name="src/lib.rs" caption="Definition of the `Draw` trait">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-03/src/lib.rs}}
 ```
 
@@ -18,7 +18,7 @@ Store trait objects using `Box<dyn Trait>`:
 
 <Listing number="18-4" file-name="src/lib.rs" caption="Definition of the `Screen` struct with a `components` field holding a vector of trait objects that implement the `Draw` trait">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-04/src/lib.rs:here}}
 ```
 
@@ -28,7 +28,7 @@ Call methods on trait objects:
 
 <Listing number="18-5" file-name="src/lib.rs" caption="A `run` method on `Screen` that calls the `draw` method on each component">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-05/src/lib.rs:here}}
 ```
 
@@ -39,7 +39,7 @@ Call methods on trait objects:
 **Generics** (monomorphization - static dispatch):
 <Listing number="18-6" file-name="src/lib.rs" caption="An alternate implementation of the `Screen` struct and its `run` method using generics and trait bounds">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-06/src/lib.rs:here}}
 ```
 
@@ -58,7 +58,7 @@ Call methods on trait objects:
 
 <Listing number="18-7" file-name="src/lib.rs" caption="A `Button` struct that implements the `Draw` trait">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch18-oop/listing-18-07/src/lib.rs:here}}
 ```
 
@@ -66,7 +66,7 @@ Call methods on trait objects:
 
 <Listing number="18-8" file-name="src/main.rs" caption="Another crate using `gui` and implementing the `Draw` trait on a `SelectBox` struct">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch18-oop/listing-18-08/src/main.rs:here}}
 ```
 
@@ -74,7 +74,7 @@ Call methods on trait objects:
 
 <Listing number="18-9" file-name="src/main.rs" caption="Using trait objects to store values of different types that implement the same trait">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch18-oop/listing-18-09/src/main.rs:here}}
 ```
 
@@ -86,7 +86,7 @@ Rust enforces trait implementation at compile time:
 
 <Listing number="18-10" file-name="src/main.rs" caption="Attempting to use a type that doesn't implement the trait object's trait">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch18-oop/listing-18-10/src/main.rs}}
 ```
 

@@ -4,7 +4,7 @@ The `use` keyword creates shortcuts to paths, reducing repetition. Think of it a
 
 <Listing number="7-11" file-name="src/lib.rs" caption="Bringing a module into scope with `use`">
 
-```rust,noplayground,test_harness
+```rust,editable,noplayground,test_harness
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-11/src/lib.rs}}
 ```
 
@@ -14,7 +14,7 @@ The `use` statement creates a shortcut valid only within its scope:
 
 <Listing number="7-12" file-name="src/lib.rs" caption="A `use` statement only applies in the scope it's in.">
 
-```rust,noplayground,test_harness,does_not_compile,ignore
+```rust,editable,noplayground,test_harness,does_not_compile,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-12/src/lib.rs}}
 ```
 
@@ -24,7 +24,7 @@ The `use` statement creates a shortcut valid only within its scope:
 
 **Functions**: Import the parent module, not the function directly
 
-```rust,noplayground,test_harness
+```rust,editable,noplayground,test_harness
 // Idiomatic
 use crate::front_of_house::hosting;
 hosting::add_to_waitlist();
@@ -38,7 +38,7 @@ add_to_waitlist();
 
 <Listing number="7-14" file-name="src/main.rs" caption="Bringing `HashMap` into scope in an idiomatic way">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-14/src/main.rs}}
 ```
 
@@ -48,7 +48,7 @@ add_to_waitlist();
 
 <Listing number="7-15" file-name="src/lib.rs" caption="Bringing two types with the same name into the same scope requires using their parent modules.">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-15/src/lib.rs:here}}
 ```
 
@@ -60,7 +60,7 @@ Create aliases to resolve naming conflicts:
 
 <Listing number="7-16" file-name="src/lib.rs" caption="Renaming a type when it's brought into scope with the `as` keyword">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-16/src/lib.rs:here}}
 ```
 
@@ -72,7 +72,7 @@ Make imported items available to external code (similar to TypeScript's `export 
 
 <Listing number="7-17" file-name="src/lib.rs" caption="Making a name available for any code to use from a new scope with `pub use`">
 
-```rust,noplayground,test_harness
+```rust,editable,noplayground,test_harness
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs}}
 ```
 
@@ -94,7 +94,7 @@ Add dependencies to `Cargo.toml`:
 
 Then import and use:
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:ch07-04}}
 ```
 
@@ -106,7 +106,7 @@ Combine multiple imports from the same crate/module:
 
 <Listing number="7-18" file-name="src/main.rs" caption="Specifying a nested path to bring multiple items with the same prefix into scope">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-18/src/main.rs:here}}
 ```
 
@@ -116,7 +116,7 @@ Use `self` to import both the parent and child:
 
 <Listing number="7-20" file-name="src/lib.rs" caption="Combining the paths in Listing 7-19 into one `use` statement">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-20/src/lib.rs}}
 ```
 
@@ -126,7 +126,7 @@ Use `self` to import both the parent and child:
 
 Import all public items (use sparingly):
 
-```rust
+```rust,editable
 use std::collections::*;
 ```
 

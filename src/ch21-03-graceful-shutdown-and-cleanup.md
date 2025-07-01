@@ -8,7 +8,7 @@ Current thread pool implementation doesn't clean up resources when dropping. Wor
 
 #### 1. Basic Drop Implementation
 
-```rust
+```rust,editable
 impl Drop for ThreadPool {
     fn drop(&mut self) {
         for worker in &mut self.workers {
@@ -26,7 +26,7 @@ impl Drop for ThreadPool {
 #### 2. Signaling Shutdown
 
 **Close channel to signal workers**:
-```rust
+```rust,editable
 impl Drop for ThreadPool {
     fn drop(&mut self) {
         // Drop sender to close channel
@@ -44,7 +44,7 @@ impl Drop for ThreadPool {
 ```
 
 **Update Worker to handle channel closure**:
-```rust
+```rust,editable
 impl Worker {
     fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Worker {
         let thread = thread::spawn(move || loop {
@@ -73,7 +73,7 @@ impl Worker {
 #### 3. Updated Data Structures
 
 **ThreadPool with Optional sender**:
-```rust
+```rust,editable
 pub struct ThreadPool {
     workers: Vec<Worker>,
     sender: Option<mpsc::Sender<Job>>,
@@ -81,7 +81,7 @@ pub struct ThreadPool {
 ```
 
 **Worker with Optional thread**:
-```rust
+```rust,editable
 struct Worker {
     id: usize,
     thread: Option<thread::JoinHandle<()>>,
@@ -91,7 +91,7 @@ struct Worker {
 ### Complete Implementation
 
 **ThreadPool**:
-```rust
+```rust,editable
 impl ThreadPool {
     pub fn new(size: usize) -> ThreadPool {
         assert!(size > 0);
@@ -136,7 +136,7 @@ impl Drop for ThreadPool {
 ### Testing Graceful Shutdown
 
 **Limited server for testing**:
-```rust
+```rust,editable
 let pool = ThreadPool::new(4);
 
 for stream in listener.incoming().take(2) {

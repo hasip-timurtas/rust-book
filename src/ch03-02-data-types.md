@@ -2,7 +2,7 @@
 
 Rust is statically typed - all variable types must be known at compile time. The compiler can usually infer types, but explicit annotations are required when multiple types are possible:
 
-```rust
+```rust,editable
 let guess: u32 = "42".parse().expect("Not a number!");
 ```
 
@@ -58,7 +58,7 @@ In debug mode, integer overflow causes panics. In release mode (`--release`), Ru
 
 Two floating-point types: `f32` and `f64` (default). Both are signed and follow IEEE-754 standard.
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-06-floating-point/src/main.rs}}
 ```
 
@@ -66,7 +66,7 @@ Two floating-point types: `f32` and `f64` (default). Both are signed and follow 
 
 Standard mathematical operations: `+`, `-`, `*`, `/`, `%`. Integer division truncates toward zero.
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-07-numeric-operations/src/main.rs}}
 ```
 
@@ -74,7 +74,7 @@ Standard mathematical operations: `+`, `-`, `*`, `/`, `%`. Integer division trun
 
 `bool` type with values `true` and `false`. One byte in size.
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-08-boolean/src/main.rs}}
 ```
 
@@ -82,7 +82,7 @@ Standard mathematical operations: `+`, `-`, `*`, `/`, `%`. Integer division trun
 
 `char` type represents Unicode scalar values (4 bytes). Use single quotes for `char` literals, double quotes for strings.
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-09-char/src/main.rs}}
 ```
 
@@ -94,19 +94,19 @@ Valid Unicode scalar values: `U+0000` to `U+D7FF` and `U+E000` to `U+10FFFF`.
 
 Fixed-length collection of values with heterogeneous types:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-10-tuples/src/main.rs}}
 ```
 
 Access elements by destructuring:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-11-destructuring-tuples/src/main.rs}}
 ```
 
 Or by index:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-12-tuple-indexing/src/main.rs}}
 ```
 
@@ -116,19 +116,19 @@ Empty tuple `()` is called _unit_ and represents an empty value or return type.
 
 Fixed-length collection of homogeneous types, allocated on the stack:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-13-arrays/src/main.rs}}
 ```
 
 Type annotation syntax:
 
-```rust
+```rust,editable
 let a: [i32; 5] = [1, 2, 3, 4, 5];
 ```
 
 Initialize with repeated values:
 
-```rust
+```rust,editable
 let a = [3; 5]; // [3, 3, 3, 3, 3]
 ```
 
@@ -136,13 +136,13 @@ Use `Vec<T>` for dynamic arrays. Arrays are better when size is known at compile
 
 ##### Array Access
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-14-array-indexing/src/main.rs}}
 ```
 
 Out-of-bounds access causes runtime panic:
 
-```rust,ignore,panics
+```rust,editable,ignore,panics
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access/src/main.rs}}
 ```
 

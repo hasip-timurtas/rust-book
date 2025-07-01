@@ -2,7 +2,7 @@
 
 Variables are immutable by default in Rust. This design choice enforces memory safety and prevents data races in concurrent contexts.
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/src/main.rs}}
 ```
 
@@ -14,7 +14,7 @@ This produces a compile-time error:
 
 To allow mutation, use the `mut` keyword:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-02-adding-mut/src/main.rs}}
 ```
 
@@ -28,7 +28,7 @@ Constants differ from immutable variables in several ways:
 - Must be set to compile-time constant expressions
 - Can be declared in any scope, including global
 
-```rust
+```rust,editable
 const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
 ```
 
@@ -38,7 +38,7 @@ Constants use `SCREAMING_SNAKE_CASE` by convention and are valid for the entire 
 
 Rust allows variable shadowing - declaring a new variable with the same name:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-03-shadowing/src/main.rs}}
 ```
 
@@ -52,13 +52,13 @@ Shadowing differs from mutation:
 - Requires `let` keyword
 - Variable remains immutable after transformations
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-04-shadowing-can-change-types/src/main.rs:here}}
 ```
 
 This is invalid with `mut`:
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/src/main.rs:here}}
 ```
 

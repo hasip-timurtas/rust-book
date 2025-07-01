@@ -46,7 +46,7 @@ $ cargo new add_one --lib
 ```
 
 **Library implementation:**
-```rust,noplayground
+```rust,editable,noplayground
 // add_one/src/lib.rs
 pub fn add_one(x: i32) -> i32 {
     x + 1
@@ -63,7 +63,7 @@ add_one = { path = "../add_one" }
 **Using workspace dependencies:**
 <Listing number="14-7" file-name="adder/src/main.rs" caption="Using library from workspace">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch14-more-about-cargo/listing-14-07/add/adder/src/main.rs}}
 ```
 

@@ -8,7 +8,7 @@ Instead of verbose `match` for single-pattern cases:
 
 <Listing number="6-6" caption="A `match` that only cares about executing code when the value is `Some`">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-06/src/main.rs:here}}
 ```
 
@@ -16,7 +16,7 @@ Instead of verbose `match` for single-pattern cases:
 
 Use `if let` for cleaner code:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-12-if-let/src/main.rs:here}}
 ```
 
@@ -30,13 +30,13 @@ Use `if let` for cleaner code:
 
 Handle non-matching cases with `else`:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-13-count-and-announce-match/src/main.rs:here}}
 ```
 
 Equivalent using `if let`:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-14-count-and-announce-if-let-else/src/main.rs:here}}
 ```
 
@@ -46,7 +46,7 @@ Equivalent using `if let`:
 
 <Listing number="6-7" caption="Checking whether a state existed in 1900 by using conditionals nested inside an `if let`.">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-07/src/main.rs:describe}}
 ```
 
@@ -54,7 +54,7 @@ Equivalent using `if let`:
 
 <Listing number="6-8" caption="Using `if let` to produce a value or return early.">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-08/src/main.rs:describe}}
 ```
 
@@ -64,7 +64,7 @@ Cleaner with `let...else`:
 
 <Listing number="6-9" caption="Using `let...else` to clarify the flow through the function.">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-09/src/main.rs:describe}}
 ```
 

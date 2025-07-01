@@ -8,7 +8,7 @@ A trait groups method signatures that define required behavior:
 
 <Listing number="10-12" file-name="src/lib.rs" caption="A `Summary` trait with a `summarize` method">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-12/src/lib.rs}}
 ```
 
@@ -20,7 +20,7 @@ The trait declaration uses the `trait` keyword followed by method signatures. Ea
 
 <Listing number="10-13" file-name="src/lib.rs" caption="Implementing the `Summary` trait">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-13/src/lib.rs:here}}
 ```
 
@@ -28,7 +28,7 @@ The trait declaration uses the `trait` keyword followed by method signatures. Ea
 
 Use the trait like any other method:
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-01-calling-trait-method/src/main.rs}}
 ```
 
@@ -40,7 +40,7 @@ Traits can provide default method implementations:
 
 <Listing number="10-14" file-name="src/lib.rs" caption="Default implementation">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-14/src/lib.rs:here}}
 ```
 
@@ -48,13 +48,13 @@ Traits can provide default method implementations:
 
 Use an empty `impl` block to accept defaults:
 
-```rust,ignore
+```rust,editable,ignore
 impl Summary for NewsArticle {}
 ```
 
 Default implementations can call other trait methods:
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-03-default-impl-calls-other-methods/src/lib.rs:here}}
 ```
 
@@ -62,7 +62,7 @@ Default implementations can call other trait methods:
 
 Use the `impl Trait` syntax for function parameters:
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-04-traits-as-parameters/src/lib.rs:here}}
 ```
 
@@ -70,7 +70,7 @@ Use the `impl Trait` syntax for function parameters:
 
 The full trait bound syntax is more verbose but more powerful:
 
-```rust,ignore
+```rust,editable,ignore
 pub fn notify<T: Summary>(item: &T) {
     println!("Breaking news! {}", item.summarize());
 }
@@ -78,7 +78,7 @@ pub fn notify<T: Summary>(item: &T) {
 
 Use trait bounds when you need multiple parameters of the same type:
 
-```rust,ignore
+```rust,editable,ignore
 pub fn notify<T: Summary>(item1: &T, item2: &T) {
 ```
 
@@ -86,13 +86,13 @@ pub fn notify<T: Summary>(item1: &T, item2: &T) {
 
 Specify multiple trait bounds with `+`:
 
-```rust,ignore
+```rust,editable,ignore
 pub fn notify(item: &(impl Summary + Display)) {
 ```
 
 Or with generic syntax:
 
-```rust,ignore
+```rust,editable,ignore
 pub fn notify<T: Summary + Display>(item: &T) {
 ```
 
@@ -100,7 +100,7 @@ pub fn notify<T: Summary + Display>(item: &T) {
 
 For complex trait bounds, use `where` clauses for clarity:
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-07-where-clause/src/lib.rs:here}}
 ```
 
@@ -108,7 +108,7 @@ For complex trait bounds, use `where` clauses for clarity:
 
 Return trait implementations without specifying concrete types:
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-05-returning-impl-trait/src/lib.rs:here}}
 ```
 
@@ -120,7 +120,7 @@ Implement methods conditionally based on trait bounds:
 
 <Listing number="10-15" file-name="src/lib.rs" caption="Conditional method implementation">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-15/src/lib.rs}}
 ```
 
@@ -128,7 +128,7 @@ Implement methods conditionally based on trait bounds:
 
 **Blanket implementations** implement a trait for any type that satisfies trait bounds:
 
-```rust,ignore
+```rust,editable,ignore
 impl<T: Display> ToString for T {
     // --snip--
 }
@@ -136,7 +136,7 @@ impl<T: Display> ToString for T {
 
 This allows calling `to_string()` on any type implementing `Display`:
 
-```rust
+```rust,editable
 let s = 3.to_string();
 ```
 

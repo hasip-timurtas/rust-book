@@ -4,7 +4,7 @@ Iterators implement lazy evaluation—they do nothing until consumed. This enabl
 
 <Listing number="13-10" file-name="src/main.rs" caption="Creating an iterator">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-10/src/main.rs:here}}
 ```
 
@@ -12,7 +12,7 @@ Iterators implement lazy evaluation—they do nothing until consumed. This enabl
 
 <Listing number="13-11" file-name="src/main.rs" caption="Using an iterator in a `for` loop">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-11/src/main.rs:here}}
 ```
 
@@ -22,7 +22,7 @@ Iterators implement lazy evaluation—they do nothing until consumed. This enabl
 
 All iterators implement the `Iterator` trait:
 
-```rust
+```rust,editable
 pub trait Iterator {
     type Item;
 
@@ -36,7 +36,7 @@ The associated type `Item` defines what the iterator yields. Only `next` require
 
 <Listing number="13-12" file-name="src/lib.rs" caption="Calling the `next` method on an iterator">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-12/src/lib.rs:here}}
 ```
 
@@ -55,7 +55,7 @@ Methods that call `next` and consume the iterator:
 
 <Listing number="13-13" file-name="src/lib.rs" caption="Using `sum` to consume an iterator">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-13/src/lib.rs:here}}
 ```
 
@@ -67,7 +67,7 @@ Methods that transform iterators into other iterators. Must be consumed to execu
 
 <Listing number="13-14" file-name="src/main.rs" caption="Iterator adapter `map` (produces warning)">
 
-```rust,not_desired_behavior
+```rust,editable,not_desired_behavior
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-14/src/main.rs:here}}
 ```
 
@@ -79,7 +79,7 @@ Methods that transform iterators into other iterators. Must be consumed to execu
 
 <Listing number="13-15" file-name="src/main.rs" caption="Using `map` and `collect` together">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-15/src/main.rs:here}}
 ```
 
@@ -91,7 +91,7 @@ Iterator adapters commonly use closures that capture environment variables:
 
 <Listing number="13-16" file-name="src/lib.rs" caption="Using `filter` with environment capture">
 
-```rust,noplayground
+```rust,editable,noplayground
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-16/src/lib.rs}}
 ```
 

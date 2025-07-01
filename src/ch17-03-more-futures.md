@@ -6,7 +6,7 @@ The `join!` macro handles variable numbers of futures:
 
 <Listing number="17-14" caption="Using join! for multiple futures" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-14/src/main.rs:here}}
 ```
 
@@ -16,7 +16,7 @@ For dynamic collections of futures, use `join_all`:
 
 <Listing number="17-15" caption="Attempting to store futures in a vector (doesn't compile)">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-15/src/main.rs:here}}
 ```
 
@@ -30,7 +30,7 @@ Use trait objects to unify future types:
 
 <Listing number="17-16" caption="Using Box for type alignment (still doesn't compile)" file-name="src/main.rs">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-16/src/main.rs:here}}
 ```
 
@@ -38,7 +38,7 @@ Use trait objects to unify future types:
 
 <Listing number="17-17" caption="Explicit type annotation for trait objects" file-name="src/main.rs">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-17/src/main.rs:here}}
 ```
 
@@ -52,7 +52,7 @@ Use `Pin<Box<T>>` to satisfy the `Unpin` requirement:
 
 <Listing number="17-18" caption="Using Pin and Box::pin" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-18/src/main.rs:here}}
 ```
 
@@ -62,7 +62,7 @@ Use `Pin<Box<T>>` to satisfy the `Unpin` requirement:
 
 <Listing number="17-19" caption="Using pin! macro for stack allocation" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-19/src/main.rs:here}}
 ```
 
@@ -76,7 +76,7 @@ Use `Pin<Box<T>>` to satisfy the `Unpin` requirement:
 
 <Listing number="17-20" caption="Mixing different future output types" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-20/src/main.rs:here}}
 ```
 
@@ -90,7 +90,7 @@ The `join!` macro handles heterogeneous types but requires compile-time knowledg
 
 <Listing number="17-21" caption="Racing futures for first completion" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-21/src/main.rs:here}}
 ```
 
@@ -104,7 +104,7 @@ Force yield points with `yield_now()`:
 
 <Listing number="17-22" caption="Simulating long-running operations" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-22/src/main.rs:slow}}
 ```
 
@@ -112,7 +112,7 @@ Force yield points with `yield_now()`:
 
 <Listing number="17-23" caption="Blocking behavior without yield points" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-23/src/main.rs:slow-futures}}
 ```
 
@@ -120,7 +120,7 @@ Force yield points with `yield_now()`:
 
 <Listing number="17-24" caption="Adding yield points between operations" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-24/src/main.rs:here}}
 ```
 
@@ -128,7 +128,7 @@ Force yield points with `yield_now()`:
 
 <Listing number="17-25" caption="Using yield_now for explicit control yielding" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-25/src/main.rs:yields}}
 ```
 
@@ -138,7 +138,7 @@ Force yield points with `yield_now()`:
 
 <Listing number="17-26" caption="Benchmarking yield strategies" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-26/src/main.rs:here}}
 ```
 
@@ -150,7 +150,7 @@ Compose futures to create higher-level abstractions:
 
 <Listing number="17-27" caption="Using a timeout abstraction" file-name="src/main.rs">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-27/src/main.rs:here}}
 ```
 
@@ -158,7 +158,7 @@ Compose futures to create higher-level abstractions:
 
 <Listing number="17-28" caption="Timeout function signature" file-name="src/main.rs">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-28/src/main.rs:declaration}}
 ```
 
@@ -166,7 +166,7 @@ Compose futures to create higher-level abstractions:
 
 <Listing number="17-29" caption="Implementing timeout with race and sleep" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-29/src/main.rs:implementation}}
 ```
 

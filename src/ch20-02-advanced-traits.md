@@ -4,7 +4,7 @@
 
 **Associated types** enforce single implementation per type:
 
-```rust
+```rust,editable
 trait Iterator {
     type Item;
     fn next(&mut self) -> Option<Self::Item>;
@@ -17,7 +17,7 @@ impl Iterator for Counter {
 ```
 
 **Generics** allow multiple implementations:
-```rust
+```rust,editable
 trait Iterator<T> {
     fn next(&mut self) -> Option<T>;
 }
@@ -26,7 +26,7 @@ trait Iterator<T> {
 
 ### Default Generic Type Parameters
 
-```rust
+```rust,editable
 trait Add<Rhs = Self> {
     type Output;
     fn add(self, rhs: Rhs) -> Self::Output;
@@ -50,7 +50,7 @@ impl Add<Meters> for Point {
 ### Method Disambiguation
 
 **Multiple traits, same method names:**
-```rust
+```rust,editable
 trait Pilot {
     fn fly(&self);
 }
@@ -73,7 +73,7 @@ Wizard::fly(&person);  // Explicit trait
 ```
 
 **Associated functions** (no `self`):
-```rust
+```rust,editable
 println!("{}", <Dog as Animal>::baby_name());  // Fully qualified syntax
 ```
 
@@ -81,7 +81,7 @@ println!("{}", <Dog as Animal>::baby_name());  // Fully qualified syntax
 
 Require implementing one trait before another:
 
-```rust
+```rust,editable
 trait OutlinePrint: fmt::Display {
     fn outline_print(&self) {
         println!("* {} *", self);  // Can use Display::fmt
@@ -100,7 +100,7 @@ impl fmt::Display for Point {
 
 Circumvent orphan rule (implement external traits on external types):
 
-```rust
+```rust,editable
 struct Wrapper(Vec<String>);
 
 impl fmt::Display for Wrapper {
@@ -119,7 +119,7 @@ println!("w = {}", w);
 - Controlled API surface
 
 **Access wrapped value** with `Deref`:
-```rust
+```rust,editable
 impl Deref for Wrapper {
     type Target = Vec<String>;
     fn deref(&self) -> &Self::Target {

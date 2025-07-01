@@ -6,7 +6,7 @@ This example demonstrates the progression from loose parameters to structured da
 
 <Listing number="5-8" file-name="src/main.rs" caption="Calculating the area of a rectangle specified by separate width and height variables">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-08/src/main.rs:all}}
 ```
 
@@ -23,7 +23,7 @@ The function signature `fn area(width: u32, height: u32) -> u32` doesn't express
 
 <Listing number="5-9" file-name="src/main.rs" caption="Specifying the width and height of the rectangle with a tuple">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-09/src/main.rs}}
 ```
 
@@ -37,7 +37,7 @@ Structs provide both grouping and semantic meaning:
 
 <Listing number="5-10" file-name="src/main.rs" caption="Defining a `Rectangle` struct">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-10/src/main.rs}}
 ```
 
@@ -55,7 +55,7 @@ Structs don't implement `Display` by default. Use `Debug` trait for development 
 
 <Listing number="5-11" file-name="src/main.rs" caption="Attempting to print a `Rectangle` instance">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-11/src/main.rs}}
 ```
 
@@ -70,7 +70,7 @@ Enable debug output with `#[derive(Debug)]`:
 
 <Listing number="5-12" file-name="src/main.rs" caption="Adding the attribute to derive the `Debug` trait and printing the `Rectangle` instance using debug formatting">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-12/src/main.rs}}
 ```
 
@@ -90,7 +90,7 @@ Pretty-print with `{:#?}`:
 
 The `dbg!` macro provides file/line information and returns ownership:
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-05-dbg-macro/src/main.rs}}
 ```
 

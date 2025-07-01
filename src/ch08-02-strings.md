@@ -7,7 +7,7 @@ Rust has two main string types: `str` (string slice, usually seen as `&str`) and
 
 ### Creating Strings
 
-```rust
+```rust,editable
 // Empty string
 let mut s = String::new();
 
@@ -22,7 +22,7 @@ let hello = String::from("नमस्ते");
 
 ### Updating Strings
 
-```rust
+```rust,editable
 let mut s = String::from("foo");
 
 // Append string slice
@@ -44,7 +44,7 @@ The `+` operator uses the `add` method with signature `fn add(self, s: &str) -> 
 
 ### String Indexing is Not Allowed
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 let s1 = String::from("hello");
 let h = s1[0]; // Error: doesn't implement Index<{integer}>
 ```
@@ -58,7 +58,7 @@ let h = s1[0]; // Error: doesn't implement Index<{integer}>
 
 Strings are `Vec<u8>` wrappers with UTF-8 guarantees:
 
-```rust
+```rust,editable
 let hello = "Здравствуйте"; // 12 chars, 24 bytes
 let hello = "नमस्ते";      // 4 graphemes, 6 scalar values, 18 bytes
 ```
@@ -67,7 +67,7 @@ let hello = "नमस्ते";      // 4 graphemes, 6 scalar values, 18 bytes
 
 Use ranges carefully - slicing must occur at valid UTF-8 boundaries:
 
-```rust
+```rust,editable
 let hello = "Здравствуйте";
 let s = &hello[0..4]; // "Зд" (each char is 2 bytes)
 
@@ -77,7 +77,7 @@ let s = &hello[0..4]; // "Зд" (each char is 2 bytes)
 
 ### Iterating Over Strings
 
-```rust
+```rust,editable
 // By Unicode scalar values (char)
 for c in "Зд".chars() {
     println!("{c}"); // З, д
@@ -95,7 +95,7 @@ for b in "Зд".bytes() {
 
 Key methods for string manipulation:
 
-```rust
+```rust,editable
 let s = String::from("hello world");
 
 // Search

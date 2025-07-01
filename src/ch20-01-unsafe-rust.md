@@ -6,7 +6,7 @@ Bypass Rust's compile-time safety checks for low-level operations, FFI, and perf
 
 Five operations require `unsafe` blocks:
 
-```rust
+```rust,editable
 unsafe {
     // Dereference raw pointers
     // Call unsafe functions
@@ -18,7 +18,7 @@ unsafe {
 
 ### Raw Pointers
 
-```rust
+```rust,editable
 let mut num = 5;
 let r1 = &num as *const i32;
 let r2 = &mut num as *mut i32;
@@ -37,7 +37,7 @@ unsafe {
 
 Wrap unsafe code in safe APIs:
 
-```rust
+```rust,editable
 fn split_at_mut(values: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
     assert!(mid <= values.len());
     unsafe {
@@ -52,7 +52,7 @@ fn split_at_mut(values: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
 
 ### FFI (Foreign Function Interface)
 
-```rust
+```rust,editable
 extern "C" {
     fn abs(input: i32) -> i32;
 }
@@ -63,7 +63,7 @@ unsafe {
 ```
 
 **Exporting to C:**
-```rust
+```rust,editable
 #[no_mangle]
 pub extern "C" fn call_from_c() {
     println!("Called from C!");
@@ -72,7 +72,7 @@ pub extern "C" fn call_from_c() {
 
 ### Static Variables
 
-```rust
+```rust,editable
 static mut COUNTER: usize = 0;
 
 unsafe {
@@ -83,7 +83,7 @@ unsafe {
 
 ### Unsafe Traits
 
-```rust
+```rust,editable
 unsafe trait Foo {
     // ...
 }
@@ -95,7 +95,7 @@ unsafe impl Foo for i32 {
 
 ### Unions
 
-```rust
+```rust,editable
 union MyUnion {
     f1: u32,
     f2: f32,

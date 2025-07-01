@@ -11,7 +11,7 @@ match VALUE {
 
 `match` expressions must be exhaustive. Use `_` as a catchall pattern:
 
-```rust,ignore
+```rust,editable,ignore
 match x {
     None => None,
     Some(i) => Some(i + 1),
@@ -24,7 +24,7 @@ More flexible than `match` for single-pattern matching:
 
 <Listing number="19-1" file-name="src/main.rs" caption="Mixing `if let`, `else if`, `else if let`, and `else`">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-01/src/main.rs}}
 ```
 
@@ -36,7 +36,7 @@ More flexible than `match` for single-pattern matching:
 
 <Listing number="19-2" caption="Using a `while let` loop to print values for as long as `rx.recv()` returns `Ok`">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-02/src/main.rs:here}}
 ```
 
@@ -50,7 +50,7 @@ The pattern follows `for`:
 
 <Listing number="19-3" caption="Using a pattern in a `for` loop to destructure a tuple">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-03/src/main.rs:here}}
 ```
 
@@ -65,7 +65,7 @@ Output:
 
 Every `let` statement uses a pattern:
 
-```rust
+```rust,editable
 let x = 5;  // x is a pattern
 ```
 
@@ -75,7 +75,7 @@ Destructuring example:
 
 <Listing number="19-4" caption="Using a pattern to destructure a tuple and create three variables at once">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-04/src/main.rs:here}}
 ```
 
@@ -85,7 +85,7 @@ Pattern elements must match exactly:
 
 <Listing number="19-5" caption="Incorrectly constructing a pattern whose variables don't match the number of elements in the tuple">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-05/src/main.rs:here}}
 ```
 
@@ -102,7 +102,7 @@ Function parameters are patterns:
 
 <Listing number="19-6" caption="A function signature uses patterns in the parameters">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-06/src/main.rs:here}}
 ```
 
@@ -112,7 +112,7 @@ Destructuring in function signatures:
 
 <Listing number="19-7" file-name="src/main.rs" caption="A function with parameters that destructure a tuple">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-07/src/main.rs}}
 ```
 

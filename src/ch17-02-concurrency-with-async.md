@@ -9,7 +9,7 @@ Async provides different APIs and performance characteristics compared to thread
 
 <Listing number="17-6" caption="Spawning an async task" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-06/src/main.rs:all}}
 ```
 
@@ -26,7 +26,7 @@ Tasks return join handles that implement `Future`:
 
 <Listing number="17-7" caption="Awaiting task completion" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-07/src/main.rs:handle}}
 ```
 
@@ -38,7 +38,7 @@ Tasks return join handles that implement `Future`:
 
 <Listing number="17-8" caption="Using join to await multiple futures" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-08/src/main.rs:join}}
 ```
 
@@ -57,7 +57,7 @@ Async channels work similarly to sync channels but with async methods:
 
 <Listing number="17-9" caption="Basic async channel usage" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-09/src/main.rs:channel}}
 ```
 
@@ -69,7 +69,7 @@ The `recv` method returns a `Future` that resolves when a message arrives.
 
 <Listing number="17-10" caption="Sending multiple messages with delays" file-name="src/main.rs">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-10/src/main.rs:many-messages}}
 ```
 
@@ -79,7 +79,7 @@ This runs serially - all sends complete before receives start. For concurrency, 
 
 <Listing number="17-11" caption="Concurrent sending and receiving" file-name="src/main.rs">
 
-```rust,ignore
+```rust,editable,ignore
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-11/src/main.rs:futures}}
 ```
 
@@ -91,7 +91,7 @@ Channels need proper cleanup to avoid infinite loops. Move the sender into an as
 
 <Listing number="17-12" caption="Using async move for proper cleanup" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-12/src/main.rs:with-move}}
 ```
 
@@ -105,7 +105,7 @@ Clone the sender for multiple producers:
 
 <Listing number="17-13" caption="Multiple async message producers" file-name="src/main.rs">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch17-async-await/listing-17-13/src/main.rs:here}}
 ```
 

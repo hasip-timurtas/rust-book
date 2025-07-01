@@ -13,6 +13,7 @@
 - **Focused Comparisons**: Only compares with TypeScript/Node.js when the concepts differ significantly
 - **Practical and Minimal**: ~60% reduction in content while preserving all essential Rust-specific information
 - **Clean and Efficient**: Perfect for senior developers onboarding into Rust
+- **Interactive Code Examples**: All code listings are editable and executable for hands-on learning
 
 ### Target Audience
 
@@ -25,6 +26,7 @@ Senior Full Stack Engineers with strong background in:
 
 ### Key Features
 - **Advanced Focus**: Emphasizes systems programming, performance, and architectural patterns
+- **Editable Code**: Modify and run code examples directly in the browser
 - **Rapid Learning**: Condensed format for efficient knowledge transfer
 - **Production Ready**: Practical patterns you'll actually use in real projects
 

@@ -8,7 +8,7 @@ Generic functions use type parameters in angle brackets. Consider these two func
 
 <Listing number="10-4" file-name="src/main.rs" caption="Two functions that differ only in their types">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-04/src/main.rs:here}}
 ```
 
@@ -16,7 +16,7 @@ Generic functions use type parameters in angle brackets. Consider these two func
 
 Combine them using a generic type parameter `T`:
 
-```rust,ignore
+```rust,editable,ignore
 fn largest<T>(list: &[T]) -> &T {
 ```
 
@@ -24,7 +24,7 @@ This declares a function generic over type `T`, taking a slice of `T` and return
 
 <Listing number="10-5" file-name="src/main.rs" caption="Generic `largest` function (doesn't compile yet)">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-05/src/main.rs}}
 ```
 
@@ -44,7 +44,7 @@ Structs can be generic over one or more types:
 
 <Listing number="10-6" file-name="src/main.rs" caption="Generic `Point<T>` struct">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-06/src/main.rs}}
 ```
 
@@ -54,7 +54,7 @@ Both fields must be the same type `T`. This won't compile:
 
 <Listing number="10-7" file-name="src/main.rs" caption="Fields must have the same generic type">
 
-```rust,ignore,does_not_compile
+```rust,editable,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-07/src/main.rs}}
 ```
 
@@ -64,7 +64,7 @@ For different types, use multiple type parameters:
 
 <Listing number="10-8" file-name="src/main.rs" caption="Generic over two types">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-08/src/main.rs}}
 ```
 
@@ -74,7 +74,7 @@ For different types, use multiple type parameters:
 
 Enums can hold generic data types:
 
-```rust
+```rust,editable
 enum Option<T> {
     Some(T),
     None,
@@ -83,7 +83,7 @@ enum Option<T> {
 
 Multiple type parameters are common:
 
-```rust
+```rust,editable
 enum Result<T, E> {
     Ok(T),
     Err(E),
@@ -96,7 +96,7 @@ Implement methods on generic structs by declaring the type parameter after `impl
 
 <Listing number="10-9" file-name="src/main.rs" caption="Method on generic struct">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-09/src/main.rs}}
 ```
 
@@ -106,7 +106,7 @@ You can implement methods only for specific concrete types:
 
 <Listing number="10-10" file-name="src/main.rs" caption="Implementation for specific type">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-10/src/main.rs:here}}
 ```
 
@@ -116,7 +116,7 @@ Method type parameters can differ from struct type parameters:
 
 <Listing number="10-11" file-name="src/main.rs" caption="Method with different generic types">
 
-```rust
+```rust,editable
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-11/src/main.rs}}
 ```
 
@@ -126,14 +126,14 @@ Method type parameters can differ from struct type parameters:
 
 Generics have zero runtime cost due to **monomorphization**—the compiler generates specific versions for each concrete type used:
 
-```rust
+```rust,editable
 let integer = Some(5);
 let float = Some(5.0);
 ```
 
 The compiler generates specialized versions:
 
-```rust
+```rust,editable
 enum Option_i32 {
     Some(i32),
     None,
