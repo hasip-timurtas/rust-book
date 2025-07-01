@@ -2,7 +2,7 @@
 
 References allow using values without taking ownership. A reference is guaranteed to point to a valid value for its lifetime.
 
-<Listing file-name="src/main.rs">
+<Listing number="4-5" file-name="src/main.rs" caption="A function that takes a reference as a parameter">
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-07-reference/src/main.rs:all}}
@@ -30,7 +30,7 @@ Creating a reference is called _borrowing_. References are immutable by default:
 
 Use `&mut` for mutable references:
 
-<Listing file-name="src/main.rs">
+<Listing number="4-7" file-name="src/main.rs" caption="Using a mutable reference to change a value">
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-09-fixes-listing-04-06/src/main.rs}}
@@ -44,7 +44,7 @@ Use `&mut` for mutable references:
 
 This prevents data races at compile time:
 
-<Listing file-name="src/main.rs">
+<Listing number="4-8" file-name="src/main.rs" caption="Attempting to create two mutable references">
 
 ```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-10-multiple-mut-not-allowed/src/main.rs:here}}
@@ -74,7 +74,7 @@ Reference scopes end at their last usage, not at the end of the block:
 
 Rust prevents dangling references through compile-time checks:
 
-<Listing file-name="src/main.rs">
+<Listing number="4-9" file-name="src/main.rs" caption="Attempting to create a dangling reference">
 
 ```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-14-dangling-reference/src/main.rs}}

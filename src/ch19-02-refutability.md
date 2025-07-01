@@ -30,14 +30,14 @@ Patterns are either **irrefutable** (always match) or **refutable** (can fail to
 <Listing number="19-8" caption="Attempting to use a refutable pattern with `let`">
 
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-8/src/main.rs:here}}
+{{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-08/src/main.rs:here}}
 ```
 
 </Listing>
 
 Error:
 ```console
-{{#include ../listings/ch19-patterns-and-matching/listing-19-8/output.txt}}
+{{#include ../listings/ch19-patterns-and-matching/listing-19-08/output.txt}}
 ```
 
 **Fix with `let...else`:**
@@ -45,7 +45,7 @@ Error:
 <Listing number="19-9" caption="Using `let...else` and a block with refutable patterns instead of `let`">
 
 ```rust
-{{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-9/src/main.rs:here}}
+{{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-09/src/main.rs:here}}
 ```
 
 </Listing>

@@ -82,7 +82,7 @@ The `..` operator copies remaining fields:
 
 Tuple structs provide struct semantics with positional fields:
 
-<Listing file-name="src/main.rs">
+<Listing number="05-8" file-name="src/main.rs" caption="Example code in src/main.rs">
 
 ```rust
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-01-tuple-structs/src/main.rs}}
@@ -96,7 +96,7 @@ Different tuple struct types are incompatible even with identical field types. A
 
 Structs without fields are useful for trait implementations without data:
 
-<Listing file-name="src/main.rs">
+<Listing number="05-8" file-name="src/main.rs" caption="Example code in src/main.rs">
 
 ```rust
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-04-unit-like-structs/src/main.rs}}
@@ -108,7 +108,7 @@ Structs without fields are useful for trait implementations without data:
 
 Structs typically own their data using owned types like `String` rather than references like `&str`. References in structs require lifetime parameters:
 
-<Listing file-name="src/main.rs">
+<Listing number="05-8" file-name="src/main.rs" caption="Example code in src/main.rs">
 
 <!-- CAN'T EXTRACT SEE https://github.com/rust-lang/mdBook/issues/1127 -->
 

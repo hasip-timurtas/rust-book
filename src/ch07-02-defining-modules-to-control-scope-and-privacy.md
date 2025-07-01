@@ -24,7 +24,7 @@ backyard
     └── main.rs
 ```
 
-<Listing file-name="src/main.rs">
+<Listing number="07-3" file-name="src/main.rs" caption="Example code in src/main.rs">
 
 ```rust,noplayground,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/quick-reference-example/src/main.rs}}
@@ -32,7 +32,7 @@ backyard
 
 </Listing>
 
-<Listing file-name="src/garden.rs">
+<Listing number="07-4" file-name="src/garden.rs" caption="Example code in src/garden.rs">
 
 ```rust,noplayground,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/quick-reference-example/src/garden.rs}}
@@ -40,7 +40,7 @@ backyard
 
 </Listing>
 
-<Listing file-name="src/garden/vegetables.rs">
+<Listing number="07-5" file-name="src/garden/vegetables.rs" caption="Example code in src/garden/vegetables.rs">
 
 ```rust,noplayground,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/quick-reference-example/src/garden/vegetables.rs}}

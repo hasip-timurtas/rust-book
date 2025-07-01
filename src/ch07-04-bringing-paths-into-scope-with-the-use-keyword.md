@@ -84,7 +84,7 @@ Re-exporting allows exposing a different public API structure than your internal
 
 Add dependencies to `Cargo.toml`:
 
-<Listing file-name="Cargo.toml">
+<Listing number="07-9" file-name="Cargo.toml" caption="Example code in Cargo.toml">
 
 ```toml
 {{#include ../listings/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:}}

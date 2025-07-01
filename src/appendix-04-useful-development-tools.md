@@ -112,7 +112,7 @@ $ cargo clippy
 For example, say you write a program that uses an approximation of a
 mathematical constant, such as pi, as this program does:
 
-<Listing file-name="src/main.rs">
+<Listing number="D-1" file-name="src/main.rs" caption="A program that uses a hard-coded value of pi">
 
 ```rust
 fn main() {
@@ -143,7 +143,7 @@ defined, and that your program would be more correct if you used the constant
 instead. You would then change your code to use the `PI` constant. The
 following code doesn’t result in any errors or warnings from Clippy:
 
-<Listing file-name="src/main.rs">
+<Listing number="D-2" file-name="src/main.rs" caption="A program that uses the PI constant">
 
 ```rust
 fn main() {

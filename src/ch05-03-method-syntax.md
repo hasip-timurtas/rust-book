@@ -24,7 +24,7 @@ Using `&self` preserves ownership in the caller, similar to function parameters.
 
 Methods can have the same name as fields:
 
-<Listing file-name="src/main.rs">
+<Listing number="05-5" file-name="src/main.rs" caption="Example code in src/main.rs">
 
 ```rust
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-06-method-field-interaction/src/main.rs:here}}

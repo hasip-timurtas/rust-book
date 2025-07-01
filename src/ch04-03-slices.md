@@ -52,7 +52,7 @@ let slice = &s[..];     // Entire string
 
 Improved `first_word` using slices:
 
-<Listing file-name="src/main.rs">
+<Listing number="04-4" file-name="src/main.rs" caption="Example code in src/main.rs">
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-18-first-word-slice/src/main.rs:here}}
@@ -62,7 +62,7 @@ Improved `first_word` using slices:
 
 Slices prevent the previous bug by enforcing borrowing rules:
 
-<Listing file-name="src/main.rs">
+<Listing number="04-4" file-name="src/main.rs" caption="Example code in src/main.rs">
 
 ```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-19-slice-error/src/main.rs:here}}
@@ -94,7 +94,7 @@ Better function signature accepts both `&String` and `&str`:
 
 Usage:
 
-<Listing file-name="src/main.rs">
+<Listing number="04-4" file-name="src/main.rs" caption="Example code in src/main.rs">
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-09/src/main.rs:usage}}

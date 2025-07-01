@@ -40,8 +40,8 @@ editable = true
 # Do not sync this preprocessor; it is for the HTML renderer only.
 [preprocessor.trpl-note]
 
-[preprocessor.trpl-listing]
-output-mode = "default"
+# [preprocessor.trpl-listing]
+# output-mode = "default"
 
 [rust]
 edition = "2024"

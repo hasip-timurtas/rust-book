@@ -28,7 +28,7 @@ The `mod` declaration loads the file once—it's not an "include" operation. Oth
 
 For submodules, create a directory structure:
 
-<Listing file-name="src/front_of_house.rs">
+<Listing number="07-3" file-name="src/front_of_house.rs" caption="Example code in src/front_of_house.rs">
 
 ```rust,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/no-listing-02-extracting-hosting/src/front_of_house.rs}}
@@ -36,7 +36,7 @@ For submodules, create a directory structure:
 
 </Listing>
 
-<Listing file-name="src/front_of_house/hosting.rs">
+<Listing number="07-4" file-name="src/front_of_house/hosting.rs" caption="Example code in src/front_of_house/hosting.rs">
 
 ```rust,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/no-listing-02-extracting-hosting/src/front_of_house/hosting.rs}}
