@@ -1,11 +1,10 @@
 # Enums and Pattern Matching
 
-In this chapter, we’ll look at _enumerations_, also referred to as _enums_.
-Enums allow you to define a type by enumerating its possible _variants_. First
-we’ll define and use an enum to show how an enum can encode meaning along with
-data. Next, we’ll explore a particularly useful enum, called `Option`, which
-expresses that a value can be either something or nothing. Then we’ll look at
-how pattern matching in the `match` expression makes it easy to run different
-code for different values of an enum. Finally, we’ll cover how the `if let`
-construct is another convenient and concise idiom available to handle enums in
-your code.
+Enums define types by enumerating possible variants, enabling type-safe variant handling through pattern matching. This chapter covers:
+
+- Enum definition and variant syntax
+- The `Option<T>` enum as Rust's null safety mechanism  
+- `match` expressions for exhaustive pattern matching
+- `if let` and `let else` for concise single-pattern matching
+
+Enums combined with pattern matching provide powerful abstractions for modeling domain data and eliminating entire classes of runtime errors.
