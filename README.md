@@ -2,6 +2,29 @@
 
 ![Build Status](https://github.com/rust-lang/book/workflows/CI/badge.svg)
 
+## 🚀 Senior Developer Edition
+
+**This is a modified version of The Rust Programming Language book, specifically tailored for senior developers with TypeScript/Node.js background.**
+
+### What's Different
+
+- **Concise and Technical**: Removed beginner-style explanations and verbose introductions
+- **Assumes Prior Knowledge**: Written for developers with of experience in software engineering
+- **Focused Comparisons**: Only compares with TypeScript/Node.js when the concepts differ significantly
+- **Practical and Minimal**: ~60% reduction in content while preserving all essential Rust-specific information
+- **Clean and Efficient**: Perfect for senior developers onboarding into Rust
+
+### Target Audience
+
+Senior Full Stack Engineers with strong background in:
+- TypeScript/JavaScript
+- Node.js
+- System design and architecture
+- Performance optimization
+- Clean code principles
+
+---
+
 This repository contains the source of "The Rust Programming Language" book.
 
 [The book is available in dead-tree form from No Starch Press][nostarch].

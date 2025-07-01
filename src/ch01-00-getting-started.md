@@ -1,8 +1,7 @@
 # Getting Started
 
-Let’s start your Rust journey! There’s a lot to learn, but every journey starts
-somewhere. In this chapter, we’ll discuss:
+This chapter covers essential setup and tooling for Rust development:
 
-- Installing Rust on Linux, macOS, and Windows
-- Writing a program that prints `Hello, world!`
-- Using `cargo`, Rust’s package manager and build system
+- **Installation**: Rust toolchain via `rustup`
+- **Hello World**: Basic compilation and execution
+- **Cargo**: Package manager and build system (Rust's equivalent to npm/yarn)

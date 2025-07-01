@@ -7,186 +7,82 @@
 [nsprust]: https://nostarch.com/rust-programming-language-2nd-edition
 [nsp]: https://nostarch.com/
 
-Welcome to _The Rust Programming Language_, an introductory book about Rust.
-The Rust programming language helps you write faster, more reliable software.
-High-level ergonomics and low-level control are often at odds in programming
-language design; Rust challenges that conflict. Through balancing powerful
-technical capacity and a great developer experience, Rust gives you the option
-to control low-level details (such as memory usage) without all the hassle
-traditionally associated with such control.
+_The Rust Programming Language_ provides a systems programming approach that combines memory safety with zero-cost abstractions. Unlike TypeScript's runtime type checking or Node.js's garbage-collected memory management, Rust enforces safety at compile time without runtime overhead.
 
-## Who Rust Is For
+Rust addresses common pain points in systems programming: memory leaks, race conditions, and undefined behavior—issues that higher-level languages like TypeScript abstract away but become critical in systems-level development.
 
-Rust is ideal for many people for a variety of reasons. Let’s look at a few of
-the most important groups.
+## Why Rust for Experienced Engineers
 
-### Teams of Developers
+### Memory Safety Without Performance Cost
 
-Rust is proving to be a productive tool for collaborating among large teams of
-developers with varying levels of systems programming knowledge. Low-level code
-is prone to various subtle bugs, which in most other languages can be caught
-only through extensive testing and careful code review by experienced
-developers. In Rust, the compiler plays a gatekeeper role by refusing to
-compile code with these elusive bugs, including concurrency bugs. By working
-alongside the compiler, the team can spend their time focusing on the program’s
-logic rather than chasing down bugs.
+Rust's ownership system eliminates entire classes of bugs common in C/C++ while matching their performance. Think of it as compile-time guarantees for what you'd normally handle with careful code reviews and runtime checks in other languages.
 
-Rust also brings contemporary developer tools to the systems programming world:
+### Modern Tooling Ecosystem
 
-- Cargo, the included dependency manager and build tool, makes adding,
-  compiling, and managing dependencies painless and consistent across the Rust
-  ecosystem.
-- The Rustfmt formatting tool ensures a consistent coding style across
-  developers.
-- The rust-analyzer powers Integrated Development Environment (IDE)
-  integration for code completion and inline error messages.
+Rust's development experience rivals modern web development:
 
-By using these and other tools in the Rust ecosystem, developers can be
-productive while writing systems-level code.
+- **Cargo**: Dependency management and build system (similar to npm/yarn but for systems programming)
+- **Rustfmt**: Code formatting (like Prettier)
+- **rust-analyzer**: LSP implementation providing IDE features comparable to TypeScript's language server
+- **Clippy**: Static analysis tool beyond basic linting
 
-### Students
+### Concurrency Without Data Races
 
-Rust is for students and those who are interested in learning about systems
-concepts. Using Rust, many people have learned about topics like operating
-systems development. The community is very welcoming and happy to answer
-student questions. Through efforts such as this book, the Rust teams want to
-make systems concepts more accessible to more people, especially those new to
-programming.
+Rust's ownership model prevents data races at compile time—eliminating a major source of production bugs in concurrent systems. This is particularly relevant coming from Node.js's event loop model where race conditions are less common but not impossible.
 
-### Companies
+### Production Adoption
 
-Hundreds of companies, large and small, use Rust in production for a variety of
-tasks, including command line tools, web services, DevOps tooling, embedded
-devices, audio and video analysis and transcoding, cryptocurrencies,
-bioinformatics, search engines, Internet of Things applications, machine
-learning, and even major parts of the Firefox web browser.
+Major companies use Rust for performance-critical infrastructure: Discord (voice/video), Dropbox (storage), Facebook (source control), Microsoft (Windows components), and Mozilla (Firefox). These are systems where TypeScript/Node.js wouldn't be appropriate due to performance requirements.
 
-### Open Source Developers
+## Target Use Cases
 
-Rust is for people who want to build the Rust programming language, community,
-developer tools, and libraries. We’d love to have you contribute to the Rust
-language.
+- **CLI tools**: Better performance than Node.js scripts with similar ergonomics
+- **Web services**: Lower latency and memory usage than Node.js/TypeScript backends
+- **Systems programming**: Device drivers, embedded systems, OS components
+- **Performance-critical components**: Computational algorithms, real-time systems
+- **Infrastructure tooling**: Networking tools, databases, container runtimes
 
-### People Who Value Speed and Stability
+## Book Structure
 
-Rust is for people who crave speed and stability in a language. By speed, we
-mean both how quickly Rust code can run and the speed at which Rust lets you
-write programs. The Rust compiler’s checks ensure stability through feature
-additions and refactoring. This is in contrast to the brittle legacy code in
-languages without these checks, which developers are often afraid to modify. By
-striving for zero-cost abstractions—higher-level features that compile to
-lower-level code as fast as code written manually—Rust endeavors to make safe
-code be fast code as well.
+This book assumes software engineering experience. Chapters are divided into concept and project chapters:
 
-The Rust language hopes to support many other users as well; those mentioned
-here are merely some of the biggest stakeholders. Overall, Rust’s greatest
-ambition is to eliminate the trade-offs that programmers have accepted for
-decades by providing safety _and_ productivity, speed _and_ ergonomics. Give
-Rust a try and see if its choices work for you.
+**Core Concepts (Chapters 1-11):**
+- Ch 1: Installation and tooling setup
+- Ch 2: Hands-on number guessing game (quick practical intro)
+- Ch 3: Basic syntax and types
+- Ch 4: **Ownership system** (Rust's key differentiator—most important chapter)
+- Ch 5-6: Structs and enums (similar to TypeScript interfaces/unions but with more capabilities)
+- Ch 7: Module system (package organization)
+- Ch 8: Collections (Vec, HashMap, etc.)
+- Ch 9: Error handling (Result types—different from exceptions)
+- Ch 10: Generics and traits (similar to TypeScript generics but more powerful)
+- Ch 11: Testing
 
-## Who This Book Is For
+**Applied Concepts (Chapters 12-21):**
+- Ch 12: CLI tool project (grep implementation)
+- Ch 13: Functional programming features (closures, iterators)
+- Ch 14: Cargo ecosystem and publishing
+- Ch 15: Smart pointers (memory management primitives)
+- Ch 16: Concurrency (threads, channels, async)
+- Ch 17: Async/await (different from JavaScript promises but similar concepts)
+- Ch 18: Object-oriented patterns in Rust
+- Ch 19: Pattern matching (more powerful than switch statements)
+- Ch 20: Advanced features (unsafe code, macros)
+- Ch 21: Multithreaded web server project
 
-This book assumes that you’ve written code in another programming language but
-doesn’t make any assumptions about which one. We’ve tried to make the material
-broadly accessible to those from a wide variety of programming backgrounds. We
-don’t spend a lot of time talking about what programming _is_ or how to think
-about it. If you’re entirely new to programming, you would be better served by
-reading a book that specifically provides an introduction to programming.
+**Recommended approach:** Read sequentially through Chapter 4 (ownership is fundamental), then adapt based on your specific interests.
 
-## How to Use This Book
+## Error Messages and Learning Process
 
-In general, this book assumes that you’re reading it in sequence from front to
-back. Later chapters build on concepts in earlier chapters, and earlier
-chapters might not delve into details on a particular topic but will revisit
-the topic in a later chapter.
+Rust's compiler provides detailed error messages with suggested fixes. Unlike TypeScript's sometimes cryptic errors, Rust errors are designed to be educational. The compiler often suggests exactly what to change.
 
-You’ll find two kinds of chapters in this book: concept chapters and project
-chapters. In concept chapters, you’ll learn about an aspect of Rust. In project
-chapters, we’ll build small programs together, applying what you’ve learned so
-far. Chapters 2, 12, and 21 are project chapters; the rest are concept chapters.
+Code examples use Ferris icons to indicate expected behavior:
 
-Chapter 1 explains how to install Rust, how to write a “Hello, world!” program,
-and how to use Cargo, Rust’s package manager and build tool. Chapter 2 is a
-hands-on introduction to writing a program in Rust, having you build up a
-number guessing game. Here we cover concepts at a high level, and later
-chapters will provide additional detail. If you want to get your hands dirty
-right away, Chapter 2 is the place for that. Chapter 3 covers Rust features
-that are similar to those of other programming languages, and in Chapter 4
-you’ll learn about Rust’s ownership system. If you’re a particularly meticulous
-learner who prefers to learn every detail before moving on to the next, you
-might want to skip Chapter 2 and go straight to Chapter 3, returning to Chapter
-2 when you’d like to work on a project applying the details you’ve learned.
-
-Chapter 5 discusses structs and methods, and Chapter 6 covers enums, `match`
-expressions, and the `if let` control flow construct. You’ll use structs and
-enums to make custom types in Rust.
-
-In Chapter 7, you’ll learn about Rust’s module system and about privacy rules
-for organizing your code and its public Application Programming Interface
-(API). Chapter 8 discusses some common collection data structures that the
-standard library provides, such as vectors, strings, and hash maps. Chapter 9
-explores Rust’s error-handling philosophy and techniques.
-
-Chapter 10 digs into generics, traits, and lifetimes, which give you the power
-to define code that applies to multiple types. Chapter 11 is all about testing,
-which even with Rust’s safety guarantees is necessary to ensure your program’s
-logic is correct. In Chapter 12, we’ll build our own implementation of a subset
-of functionality from the `grep` command line tool that searches for text
-within files. For this, we’ll use many of the concepts we discussed in the
-previous chapters.
-
-Chapter 13 explores closures and iterators: features of Rust that come from
-functional programming languages. In Chapter 14, we’ll examine Cargo in more
-depth and talk about best practices for sharing your libraries with others.
-Chapter 15 discusses smart pointers that the standard library provides and the
-traits that enable their functionality.
-
-In Chapter 16, we’ll walk through different models of concurrent programming and
-talk about how Rust helps you to program in multiple threads fearlessly. In
-Chapter 17, we build on that by exploring Rust’s async and await syntax, along
-with tasks, futures, and streams, and the lightweight concurrency model they
-enable.
-
-Chapter 18 looks at how Rust idioms compare to object-oriented programming
-principles you might be familiar with. Chapter 19 is a reference on patterns and
-pattern matching, which are powerful ways of expressing ideas throughout Rust
-programs. Chapter 20 contains a smorgasbord of advanced topics of interest,
-including unsafe Rust, macros, and more about lifetimes, traits, types,
-functions, and closures.
-
-In Chapter 21, we’ll complete a project in which we’ll implement a low-level
-multithreaded web server!
-
-Finally, some appendixes contain useful information about the language in a more
-reference-like format. **Appendix A** covers Rust’s keywords, **Appendix B**
-covers Rust’s operators and symbols, **Appendix C** covers derivable traits
-provided by the standard library, **Appendix D** covers some useful development
-tools, and **Appendix E** explains Rust editions. In **Appendix F**, you can
-find translations of the book, and in **Appendix G** we’ll cover how Rust is
-made and what nightly Rust is.
-
-There is no wrong way to read this book: if you want to skip ahead, go for it!
-You might have to jump back to earlier chapters if you experience any
-confusion. But do whatever works for you.
-
-<span id="ferris"></span>
-
-An important part of the process of learning Rust is learning how to read the
-error messages the compiler displays: these will guide you toward working code.
-As such, we’ll provide many examples that don’t compile along with the error
-message the compiler will show you in each situation. Know that if you enter
-and run a random example, it may not compile! Make sure you read the
-surrounding text to see whether the example you’re trying to run is meant to
-error. Ferris will also help you distinguish code that isn’t meant to work:
-
-| Ferris                                                                                                           | Meaning                                          |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| <img src="img/ferris/does_not_compile.svg" class="ferris-explain" alt="Ferris with a question mark"/>            | This code does not compile!                      |
-| <img src="img/ferris/panics.svg" class="ferris-explain" alt="Ferris throwing up their hands"/>                   | This code panics!                                |
-| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain" alt="Ferris with one claw up, shrugging"/> | This code does not produce the desired behavior. |
-
-In most situations, we’ll lead you to the correct version of any code that
-doesn’t compile.
+| Icon | Meaning |
+|------|---------|
+| <img src="img/ferris/does_not_compile.svg" class="ferris-explain" alt="Ferris with a question mark"/> | Compilation failure (intentional for learning) |
+| <img src="img/ferris/panics.svg" class="ferris-explain" alt="Ferris throwing up their hands"/> | Runtime panic (controlled failure) |
+| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain" alt="Ferris with one claw up, shrugging"/> | Runs but produces incorrect results |
 
 ## Source Code
 
