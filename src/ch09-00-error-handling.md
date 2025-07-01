@@ -1,24 +1,17 @@
 # Error Handling
 
-Errors are a fact of life in software, so Rust has a number of features for
-handling situations in which something goes wrong. In many cases, Rust requires
-you to acknowledge the possibility of an error and take some action before your
-code will compile. This requirement makes your program more robust by ensuring
-that you’ll discover errors and handle them appropriately before deploying your
-code to production!
+Software'de error'lar kaçınılmazdır. Rust error handling için kapsamlı özellikler sunar. Çoğu durumda error olasılığını acknowledge etmenizi ve action almanızı zorunlu kılar - bu robustness sağlar.
 
-Rust groups errors into two major categories: _recoverable_ and _unrecoverable_
-errors. For a recoverable error, such as a _file not found_ error, we most
-likely just want to report the problem to the user and retry the operation.
-Unrecoverable errors are always symptoms of bugs, such as trying to access a
-location beyond the end of an array, and so we want to immediately stop the
-program.
+Rust error'ları iki kategoriye ayırır:
 
-Most languages don’t distinguish between these two kinds of errors and handle
-both in the same way, using mechanisms such as exceptions. Rust doesn’t have
-exceptions. Instead, it has the type `Result<T, E>` for recoverable errors and
-the `panic!` macro that stops execution when the program encounters an
-unrecoverable error. This chapter covers calling `panic!` first and then talks
-about returning `Result<T, E>` values. Additionally, we’ll explore
-considerations when deciding whether to try to recover from an error or to stop
-execution.
+## Recoverable vs Unrecoverable Errors
+
+**Recoverable**: _file not found_ gibi - kullanıcıya rapor et, retry operation
+**Unrecoverable**: Array bounds overflow gibi bug'lar - program'ı durdur  
+
+Çoğu dilde exception mechanism ikisini de aynı şekilde handle eder. Rust exception'ı yoktur:
+
+- **`Result<T, E>`**: Recoverable error'lar için
+- **`panic!` macro**: Unrecoverable error'lar için execution'ı durdurur
+
+Bu chapter önce `panic!` sonra `Result<T, E>` return etmeyi kapsar. Error'dan recover mi edilmeli yoksa execution durdurulmalı mı kararına odaklanır.

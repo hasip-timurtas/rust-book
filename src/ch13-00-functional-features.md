@@ -1,24 +1,14 @@
-# Functional Language Features: Iterators and Closures
+# Functional Language Features: Iterators ve Closures
 
-Rust’s design has taken inspiration from many existing languages and
-techniques, and one significant influence is _functional programming_.
-Programming in a functional style often includes using functions as values by
-passing them in arguments, returning them from other functions, assigning them
-to variables for later execution, and so forth.
+Rust tasarımı functional programming'den ilham almıştır. Function'ları value olarak kullanma: argument'larda pass etme, return etme, variable'lara assign etme.
 
-In this chapter, we won’t debate the issue of what functional programming is or
-isn’t but will instead discuss some features of Rust that are similar to
-features in many languages often referred to as functional.
+Bu chapter functional programming tartışması yapmaz, ancak JavaScript/TypeScript'teki benzer özellikleri bildiğinizi varsayarak Rust'ın functional özelliklerini kapsar.
 
-More specifically, we’ll cover:
+## İçerik
 
-- _Closures_, a function-like construct you can store in a variable
-- _Iterators_, a way of processing a series of elements
-- How to use closures and iterators to improve the I/O project in Chapter 12
-- The performance of closures and iterators (spoiler alert: they’re faster than
-  you might think!)
+- **Closures**: Variable'da saklanabilen function-like construct (JS arrow function'ları gibi)
+- **Iterators**: Element serilerini process etme (JS Array methods benzeri)  
+- Chapter 12 I/O project'ini closures ve iterators ile geliştirme
+- Performance analizi (spoiler: çok hızlılar)
 
-We’ve already covered some other Rust features, such as pattern matching and
-enums, that are also influenced by the functional style. Because mastering
-closures and iterators is an important part of writing idiomatic, fast Rust
-code, we’ll devote this entire chapter to them.
+Pattern matching ve enum'lar da functional style'dan etkilenmiştir. Closures ve iterators idiomatic, hızlı Rust kodu yazmanın temeldir.

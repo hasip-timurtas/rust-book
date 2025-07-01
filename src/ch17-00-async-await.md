@@ -1,17 +1,43 @@
-# Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams
+# Asynchronous Programming Temelleri: Async, Await, Futures ve Streams
 
-Many operations we ask the computer to do can take a while to finish. It would
-be nice if we could do something else while we are waiting for those
-long-running processes to complete. Modern computers offer two techniques for
-working on more than one operation at a time: parallelism and concurrency. Once
-we start writing programs that involve parallel or concurrent operations,
-though, we quickly encounter new challenges inherent to _asynchronous
-programming_, where operations may not finish sequentially in the order they
-were started. This chapter builds on Chapter 16’s use of threads for parallelism
-and concurrency by introducing an alternative approach to asynchronous
-programming: Rust’s Futures, Streams, the `async` and `await` syntax that
-supports them, and the tools for managing and coordinating between asynchronous
-operations.
+Modern software genelde I/O bound'dur: database query'leri, file system access, network request'leri. Geleneksel approach thread'leri block eder - inefficient.
+
+**Asynchronous programming** I/O operation'ların tamamlanmasını beklerken başka işler yapmaya izin verir. JavaScript Promise/async-await pattern'ına benzer.
+
+## JavaScript ile Karşılaştırma
+
+JavaScript:
+```javascript
+async function fetchData() {
+    const response = await fetch('/api/data');
+    return response.json();
+}
+```
+
+Rust:
+```rust
+async fn fetch_data() -> Result<Data, Error> {
+    let response = client.get("/api/data").await?;
+    response.json().await
+}
+```
+
+## Async vs Threads
+
+**Thread'ler**: Her task için OS thread - memory overhead, context switching cost
+**Async**: Single thread'de multiple task'lar - event loop pattern, memory efficient
+
+Node.js single-threaded async model kullanır. Rust hybrid approach: Async task'lar thread pool'da distribute edilebilir.
+
+## Chapter İçeriği
+
+- **Future'lar**: Henüz tamamlanmamış computation'lar  
+- **async/await syntax**: Future'larla ergonomic çalışma
+- **Task'lar**: Async work unit'leri
+- **Stream'ler**: Async iterator'lar - asynchronous data sequence'leri
+- **Concurrent async**: Multiple async operation'ları parallel çalıştırma
+
+Rust async model zero-cost abstraction - compiled kod thread'ler ve callbacks kadar efficient.
 
 Let’s consider an example. Say you’re exporting a video you’ve created of a
 family celebration, an operation that could take anywhere from minutes to hours.
@@ -131,7 +157,7 @@ series, one task after the other, as in Figure 17-3.
 
 <figure>
 
-<img src="img/trpl17-03.svg" class="center" alt="A diagram with boxes labeled Task A and Task B, with diamonds in them representing subtasks. There are arrows pointing from A1 to A2, A2 to a pair of thick vertical lines like a “pause” symbol, from that symbol to A3, B1 to B2, B2 to B3, which is below that symbol, B3 to A3, and B3 to B4." />
+<img src="img/trpl17-03.svg" class="center" alt="A diagram with boxes labeled Task A and Task B, with diamonds in them representing subtasks. There are arrows pointing from A1 to A2, A2 to a pair of thick vertical lines like a "pause" symbol, from that symbol to A3, B1 to B2, B2 to B3, which is below that symbol, B3 to A3, and B3 to B4." />
 
 <figcaption>Figure 17-3: A partially parallel workflow, where work happens on Task A and Task B independently until Task A3 is blocked on the results of Task B3.</figcaption>
 
@@ -142,7 +168,7 @@ your tasks. Now your concurrent work has also become serial.
 
 Parallelism and concurrency can intersect with each other, too. If you learn
 that a colleague is stuck until you finish one of your tasks, you’ll probably
-focus all your efforts on that task to “unblock” your colleague. You and your
+focus all your efforts on that task to "unblock" your colleague. You and your
 coworker are no longer able to work in parallel, and you’re also no longer able
 to work concurrently on your own tasks.
 
