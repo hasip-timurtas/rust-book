@@ -28,6 +28,13 @@ Senior Full Stack Engineers with strong background in:
 - **Rapid Learning**: Condensed format for efficient knowledge transfer
 - **Production Ready**: Practical patterns you'll actually use in real projects
 
+### 📖 Read Online
+
+The book is automatically deployed to GitHub Pages and available at:
+**[https://yourusername.github.io/rust-book/](https://yourusername.github.io/rust-book/)**
+
+> Replace `yourusername` with your actual GitHub username
+
 ---
 
 This repository contains the source of "The Rust Programming Language" book.
