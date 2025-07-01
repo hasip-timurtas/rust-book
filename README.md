@@ -31,9 +31,7 @@ Senior Full Stack Engineers with strong background in:
 ### 📖 Read Online
 
 The book is automatically deployed to GitHub Pages and available at:
-**[https://hasip.timurtas.github.io/rust-book/](https://hasip.timurtas.github.io/rust-book/)**
-
-> Replace `hasip.timurtas` with your actual GitHub username
+**[https://hasip-timurtas.github.io/rust-book/](https://hasip-timurtas.github.io/rust-book/)**
 
 ---
 
